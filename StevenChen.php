@@ -16,21 +16,8 @@ print("Hello World");
             <h1 style="line-height: 80px;">Bargain Share</h1>
           </header>
           <nav>
-            <a href="index.html">Home</a>
+            <a href="Steven/index.html">Home</a>
             <b>|</b>
-            <a href="Bargains.html">Bargains</a>
-            <b>|</b>
-            <a href="Forum.html">Forum</a>
-            <b>|</b>
-            <a href="About.html">About</a>
-            <b>|</b>
-            <a href="Account.html">Account</a>
-            <b>|</b>
-          </nav>
-          <main>
-            <h1>Home</h1>
-            <p>Home Page</p>
-          </main>
           <footer>
             <a href="https://twitter.com"><img src="twitter.png"  alt="twitter icon"></a>
             <a href="https://facebook.com"><img src="facebook.png"  alt="facebook icon"></a>
