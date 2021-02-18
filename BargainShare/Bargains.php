@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>BargainShare</title>
+    <title>Bargains-BargainShare</title>
     <meta charset="utf-8">
     <link rel="icon" href="./images/logo.png">
     <link rel="stylesheet" type="text/css" href="./styles/navbar.css">
@@ -12,7 +12,7 @@
       <nav>
         <img class="logo" src="./images/logo.png" alt="BargainShare Logo">
         <a class="left-link" href="index.html">Home</a>
-        <a class="left-link" href="Bargains.php">Bargains</a>
+        <a class="left-link" href="Bargains.html">Bargains</a>
         <a class="left-link" href="Forum.html">Forum</a>
         <a class="left-link" href="Extensions.html">Extensions</a>
         <a class="left-link" href="About.html">About</a>
@@ -39,4 +39,10 @@
         </div>
       </nav>
     </header>
+    <?php include 'ConnectDb.php'; ?>
+    <form action="Upload.php" method="post" enctype="multipart/form-data">
+      Select Image File to Upload:
+      <input type="file" name="file">
+      <input type="submit" name="UploadImage" value="Upload">
+    </form>
   </body>
