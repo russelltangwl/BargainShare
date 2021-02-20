@@ -5,10 +5,18 @@
 	 <meta charset="utf-8">
 	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	 <link rel="icon" href="./images/logo.png">
+    <link rel="stylesheet" type="text/css" href="./styles/productpoststyle.css">
     <link rel="stylesheet" type="text/css" href="./styles/navbar.css">
+<!--     <style>
+      div#register {
+          width:50%;
+          margin-left: auto;
+          margin-right: auto;
+        }
+    </style> -->
+
 </head>
 <body>
-	<?php include 'dbconnection.php';?>
 	<header>
       <nav>
         <img class="logo" src="./images/logo.png" alt="BargainShare Logo">
@@ -39,63 +47,43 @@
           </div>
         </div>
       </nav>
-    </header>
-    <h1>Registeration Page </h1>
+  </header>
+    <form action="Upload.php" method="post" enctype="multipart/form-data">
+      <div id = "register">
+        <fieldset>
+        <legend><h1>Register</h1></legend>
+        <p>Please fill in this form to create a product.</p>
+        <hr>
 
-  	<?php getproductDetails(); ?> 
-  
+        <label for="ItemName"><b>ItemName</b></label>
+        <input type="text" placeholder="Enter ItemName" name='ItemName' id='ItemName'required><br><br>
 
+        <label for="Source"><b>URL</b></label>
+        <input type="text" placeholder="Enter URL" name='Source' id='Source'required><br><br>
+
+        <label for="ItemType"><b>ItemType</b></label>
+        <input type="text" placeholder="Enter ItemType" name='ItemType' id='ItemType'required><br><br>
+
+        <label for="Price"><b>Price</b></label>
+        <input type="text" placeholder="Enter Price" name='Price' id='Price'required><br><br>
+
+        <label for="Discount"><b>Discount</b></label>
+        <input type="text" placeholder="Enter Discount" name='Discount' id='Discount'required><br><br>
+
+        <label for="DiscountValidDate"><b>DiscountValidDate</b></label>
+        <input type="date" placeholder="Enter DiscountValidDate" name='DiscountValidDate' id='DiscountValidDate'required><br><br>
+
+        <label for="Image"><b>Image</b></label> 
+        <input type="file" name="file"><br><br>
+       
+
+        <label for="Message"><b>Message</b></label>
+        <textarea  rows="10" cols="50" name="Message" id="Message"></textarea><br><br>
+
+        <p>By creating an product you agree to our <a href="#">Terms & Privacy</a>.</p>
+         <input type="submit" name="UploadImage" class ="registerbtn"value="Upload">
+      </div>
+      </fieldset>
+    </form>
 </body>
 </html>
-<?php
-function getproductDetails(){
-	include 'dbconnection.php';
-	$regForm = "
-	 <form method='POST' action='productpost.php'>
-	 <label>PostID:</label>
-	<input type='varchar(30)' name='PostID' id='PostID'><br>
-	 <label>ItemName:</label>
-	<input type='varchar(30)' name='ItemName' id='ItemName'><br>
-	 <label>Source:</label>
-	<input type='text' name='Source' id='Source'><br>
-	 <label>ItemType:</label>
-	<input type='varchar(30)' name='ItemType' id='ItemType'><br>
-	 <label>Price:</label>
-	<input type='double' name='Price' id='Price'><br>
-	<label>Discount:</label>
-	<input type='double' name='Discount' id='Discount'><br>
-	<label>DiscountValidDate:</label>
-	<input type='double' name='DiscountValidDate' id='DiscountValidDate'><br>	
-	 <button>Register</button>
-	</form> ";
-
-	echo($regForm);
-	// $PostID =mysqli_real_escape_string($conn,$_POST['PostID']);
-	// $ItemName =mysqli_real_escape_string($conn,$_POST['ItemName']);
-	// $Source =mysqli_real_escape_string($conn,$_POST['Source']);
-	// $ItemType =mysqli_real_escape_string($conn,$_POST['ItemType']);
-	// $Price =mysqli_real_escape_string($conn,$_POST['Price']);
-	// $Discount =mysqli_real_escape_string($conn,$_POST['Discount']);
-	// $DiscountValidDate =mysqli_real_escape_string($conn,$_POST['DiscountValidDate']);
-	// $UserID =2;
-	// $Date =227;
-	// $Image =0;
-
-	$sql = "INSERT INTO `ProductPostsDatabase` (`PostID`, `ItemName`, `Source`, `ItemType`, `Price`, `Discount`, `DiscountValidDate`, `Image`, `UserID`, `Date`) VALUES ('".$_POST[PostID]."', '".$_POST[ItemName]."', '".$_POST[Source]."', '".$_POST[ItemType]."', '".$_POST[Price]."', '".$_POST[Discount]."', '".$_POST[DiscountValidDate]."', '0', '2', CURRENT_TIMESTAMP)";
-    $records = $conn->query($sql);
-    if ($records)
-    {
-      echo ("Connected");
-    }
-    else{
-      echo ("Error: " . $conn->error);
-      echo ("$sql");
-    }
-  }
-
-function chnageimage(){
-
-}
-
-
-?>
