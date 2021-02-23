@@ -11,8 +11,8 @@
     <header>
       <nav>
         <img class="logo" src="./images/logo.png" alt="BargainShare Logo">
-        <a class="left-link" href="index.html">Home</a>
-        <a class="left-link" href="Bargains.html">Bargains</a>
+        <a class="left-link" href="index.php">Home</a>
+        <a class="left-link" href="Bargains.php">Bargains</a>
         <a class="left-link" href="Forum.html">Forum</a>
         <a class="left-link" href="Extensions.html">Extensions</a>
         <a class="left-link" href="About.html">About</a>
@@ -39,10 +39,5 @@
         </div>
       </nav>
     </header>
-    <?php include 'ConnectDb.php'; ?>
-    <form action="Upload.php" method="post" enctype="multipart/form-data">
-      Select Image File to Upload:
-      <input type="file" name="file">
-      <input type="submit" name="UploadImage" value="Upload">
-    </form>
+    <a class="Create post"href="ProductPost.php">Create</a>
   </body>
