@@ -7,7 +7,6 @@
 	<link rel="icon" href="./images/logo.png">
 	<link rel="stylesheet" type="text/css" href="./styles/ProductPost.css">
 	<link rel="stylesheet" type="text/css" href="./styles/navbar.css">
-	<link rel="stylesheet" type="text/css" href="./styles/ImagePreview.css">
 	<!--     <style>
 	div#register {
 	width:50%;
