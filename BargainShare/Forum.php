@@ -72,9 +72,9 @@
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0){
-      echo "<table><tr><th>User ID</th><th>Title</th><th>Description</th><th>Upvotes</th></tr>";
+      echo "<table><tr><th>User ID</th><th>Title</th><th>Post Description</th><th>Upvotes</th></tr>";
       while ($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["UserID"] . "</td><td>" . $row["Post Description"] . "</td><td>" . $row["PostContent"] . "</td><td>" . $row["NoOfUpvotes"] . "</td></tr>";
+        echo "<tr><td>" . $row["UserID"] . "</td><td>" . $row["Title"] . "</td><td>" . $row["PostContent"] . "</td><td>" . $row["NoOfUpvotes"] . "</td></tr>";
       }
       echo "</table>";
     } else {
