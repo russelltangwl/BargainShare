@@ -11,5 +11,5 @@
     <header>
       <?php include './php/NavBar.php';?>
     </header>
-    <a class="Create post"href="ProductPost.php">Create</a>
+    <a class="Create post"href="ProductPost.php">Create Product Post</a>
   </body>

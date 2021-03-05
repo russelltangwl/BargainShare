@@ -29,6 +29,8 @@
     }
     </style>
 
+    <a class="Create post"href="ProductPost.php">Create Forum Post</a>
+
     <?php
     include './php/ConnectDb.php';
 
