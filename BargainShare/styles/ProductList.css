@@ -41,7 +41,7 @@
   padding: 20px;
   border: 1px solid gray;
   margin: 10px;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .ProductList img{

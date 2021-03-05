@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Bargains-BargainShare</title>
+    <title>About-BargainShare</title>
     <meta charset="utf-8">
     <link rel="icon" href="./images/logo.png">
     <link rel="stylesheet" type="text/css" href="./styles/navbar.css">
@@ -11,5 +11,4 @@
     <header>
       <?php include './php/NavBar.php'?>
     </header>
-    <a class="Create post"href="ProductPost.php">Create</a>
   </body>

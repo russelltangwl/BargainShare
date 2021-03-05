@@ -9,35 +9,7 @@
   </head>
   <body>
     <header>
-      <nav>
-        <img class="logo" src="./images/logo.png" alt="BargainShare Logo">
-        <a class="left-link" href="index.php">Home</a>
-        <a class="left-link" href="Bargains.php">Bargains</a>
-        <a class="left-link" href="Forum.php">Forum</a>
-        <a class="left-link" href="Extensions.html">Extensions</a>
-        <a class="left-link" href="About.html">About</a>
-        <form action="/search.php">
-          <input type="text" placeholder="Search..">
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-        <div class="MyAccount-container">
-          <button><i onclick="toggleNotification(this)" class="fa fa-bell"></i></button>
-          <script>
-            function toggleNotification(x) {
-              x.classList.toggle("fa-bell-slash");
-            }
-          </script>
-          <div class="MyAccount-link">
-            <button class="MyAccount-btn">My Account<i class="fa fa-caret-down"></i></button>
-            <div class="MyAccount-content">
-              <a href="MyProfile.html">My Profile</a>
-              <a href="MyFavourite.html">My Favourite</a>
-              <a href="MyPost.html">My Post</a>
-              <a href="LogOut.html">Log Out</a>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <?php include './php/NavBar.php'?>
     </header>
     <style>
     table {
@@ -72,9 +44,9 @@
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0){
-      echo "<table><tr><th>User ID</th><th>Title</th><th>Description</th><th>Upvotes</th></tr>";
+      echo "<table><tr><th>User ID</th><th>Title</th><th>Post Description</th><th>Upvotes</th></tr>";
       while ($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["UserID"] . "</td><td>" . $row["Post Description"] . "</td><td>" . $row["PostContent"] . "</td><td>" . $row["NoOfUpvotes"] . "</td></tr>";
+        echo "<tr><td>" . $row["UserID"] . "</td><td>" . $row["Title"] . "</td><td>" . $row["PostContent"] . "</td><td>" . $row["NoOfUpvotes"] . "</td></tr>";
       }
       echo "</table>";
     } else {
