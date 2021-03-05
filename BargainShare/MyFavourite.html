@@ -13,7 +13,7 @@
         <img class="logo" src="./images/logo.png" alt="BargainShare Logo">
         <a class="left-link" href="index.php">Home</a>
         <a class="left-link" href="Bargains.php">Bargains</a>
-        <a class="left-link" href="Forum.html">Forum</a>
+        <a class="left-link" href="Forum.php">Forum</a>
         <a class="left-link" href="Extensions.html">Extensions</a>
         <a class="left-link" href="About.html">About</a>
         <form action="/search.php">
