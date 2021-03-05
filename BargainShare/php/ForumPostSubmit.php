@@ -14,7 +14,9 @@ if (mysqli_connect_error()) {
 $records = $conn->query($INSERT);
 if ($records)
 {
-  echo ("Uploaded SUCCESSFULLY");
+  echo "<script language='javascript'>\n";
+  echo "alert('Submitted successfully!'); window.location.href='../Forum.php';";
+  echo "</script>\n";
 }
 else{
   echo ("Error: " . $conn->error);
