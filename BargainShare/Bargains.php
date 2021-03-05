@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-      <?php include './php/NavBar.php'?>
+      <?php include './php/NavBar.php';?>
     </header>
     <a class="Create post"href="ProductPost.php">Create</a>
   </body>

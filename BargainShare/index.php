@@ -11,7 +11,7 @@
   <head>
   <body>
     <header>
-      <?php include './php/NavBar.php'?>
+      <?php include './php/NavBar.php';?>
     </header>
 
     <!-- Product List -->

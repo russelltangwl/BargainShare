@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-      <?php include './php/NavBar.php'?>
+      <?php include './php/NavBar.php';?>
     </header>
     <style>
     table {
@@ -30,7 +30,7 @@
     </style>
 
     <?php
-    include './php/ConnectDb.php'
+    include './php/ConnectDb.php';
 
     $sql = "SELECT * FROM ForumPostsDatabase";
     $result = $conn->query($sql);

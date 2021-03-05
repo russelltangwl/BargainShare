@@ -18,7 +18,7 @@
 </head>
 <body>
 	<header>
-		<?php include './php/NavBar.php'?>
+		<?php include './php/NavBar.php';?>
 	</header>
 	<form class="PostProduct" action="./php/UploadProductPost.php" method="post" enctype="multipart/form-data">
 		<fieldset>
