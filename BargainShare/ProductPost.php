@@ -20,7 +20,7 @@
 	<header>
 		<?php include './php/NavBar.php'?>
 	</header>
-	<form class="PostProduct" action="UploadProductPost.php" method="post" enctype="multipart/form-data">
+	<form class="PostProduct" action="./php/UploadProductPost.php" method="post" enctype="multipart/form-data">
 		<fieldset>
 			<legend><h1>Create Post</h1></legend>
 			<p>Please fill in this form to create a post.</p>
