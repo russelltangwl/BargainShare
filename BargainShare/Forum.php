@@ -29,7 +29,7 @@
     }
     </style>
 
-    <a class="Create post"href="ProductPost.php">Create Forum Post</a>
+    <a class="Create post"href="ForumCreatePost.php">Create Forum Post</a>
 
     <?php
     include './php/ConnectDb.php';
