@@ -18,37 +18,9 @@
 </head>
 <body>
 	<header>
-		<nav>
-			<img class="logo" src="./images/logo.png" alt="BargainShare Logo">
-			<a class="left-link" href="index.php">Home</a>
-			<a class="left-link" href="Bargains.html">Bargains</a>
-			<a class="left-link" href="Forum.html">Forum</a>
-			<a class="left-link" href="Extensions.html">Extensions</a>
-			<a class="left-link" href="About.html">About</a>
-			<form action="/search.php">
-				<input type="text" placeholder="Search..">
-				<button type="submit"><i class="fa fa-search"></i></button>
-			</form>
-			<div class="MyAccount-container">
-				<button><i onclick="toggleNotification(this)" class="fa fa-bell"></i></button>
-				<script>
-				function toggleNotification(x) {
-					x.classList.toggle("fa-bell-slash");
-				}
-				</script>
-				<div class="MyAccount-link">
-					<button class="MyAccount-btn">My Account<i class="fa fa-caret-down"></i></button>
-					<div class="MyAccount-content">
-						<a href="MyProfile.html">My Profile</a>
-						<a href="MyFavourite.html">My Favourite</a>
-						<a href="MyPost.html">My Post</a>
-						<a href="LogOut.html">Log Out</a>
-					</div>
-				</div>
-			</div>
-		</nav>
+		<?php include './php/NavBar.php';?>
 	</header>
-	<form class="PostProduct" action="UploadProductPost.php" method="post" enctype="multipart/form-data">
+	<form class="PostProduct" action="./php/UploadProductPost.php" method="post" enctype="multipart/form-data">
 		<fieldset>
 			<legend><h1>Create Post</h1></legend>
 			<p>Please fill in this form to create a post.</p>

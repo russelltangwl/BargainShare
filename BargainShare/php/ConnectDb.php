@@ -12,14 +12,4 @@ if (!$conn)
 else{
   echo "Connected Successfully";
 }
-
-$sql = "SELECT * FROM ProductPostsDatabase";
-$records = $conn->query($sql);
-if ($records)
-{
-  echo ("Connected");
-}
-else{
-  echo ("Error: " . $conn->error);
-}
 ?>

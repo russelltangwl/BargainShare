@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Forum-BargainShare</title>
+    <title>My Profile-BargainShare</title>
     <meta charset="utf-8">
     <link rel="icon" href="./images/logo.png">
     <link rel="stylesheet" type="text/css" href="./styles/navbar.css">
@@ -9,6 +9,6 @@
   </head>
   <body>
     <header>
-      <?php include './php/NavBar.php';?>
+      <?php include './php/NavBar.php'?>
     </header>
   </body>

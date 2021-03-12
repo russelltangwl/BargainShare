@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Forum-BargainShare</title>
+    <title>Extensions-BargainShare</title>
     <meta charset="utf-8">
     <link rel="icon" href="./images/logo.png">
     <link rel="stylesheet" type="text/css" href="./styles/navbar.css">
