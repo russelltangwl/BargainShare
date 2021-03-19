@@ -1,0 +1,53 @@
+.ViewPostContainer {
+    margin: 10px;
+    border: 1px black solid;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgb(255 127 39 / 50%), 0 6px 20px 0 rgb(255 127 39 / 0%);
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.ViewPostContainer *{
+    display: inline-block;
+}
+
+.SkipLine{
+  display: block;
+}
+
+.ProductPicNDetails {
+  display: block;
+
+}
+
+.ProductDetails * {
+    display: block;
+}
+
+img.ProfilePic {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+img.ProductMainPic {
+    width: 300px;
+    height: 300px;
+}
+
+.ProductMessage{
+  width: 100%;
+}
+
+.NumberBar button{
+  color: black;
+  height: 50px;
+  background: white;
+  border: none;
+  cursor: pointer;
+  outline:none;
+}
+
+.ProductDetails h1{
+  margin-top: 0px;
+}

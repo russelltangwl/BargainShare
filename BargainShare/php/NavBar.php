@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<nav>
+<nav id="navbar">
   <img class="logo" src="./images/logo.png" alt="BargainShare Logo">
   <a class="left-link" href="index.php">Home</a>
   <a class="left-link" href="Bargains.php">Bargains</a>
@@ -15,11 +15,6 @@
   </form>
   <div class="MyAccount-container">
     <button><i onclick="toggleNotification(this)" class="fa fa-bell"></i></button>
-    <script>
-    function toggleNotification(x) {
-      x.classList.toggle("fa-bell-slash");
-    }
-    </script>
     <div class="MyAccount-link">
       <button class="MyAccount-btn">My Account<i class="fa fa-caret-down"></i></button>
       <div class="MyAccount-content">
@@ -31,3 +26,8 @@
     </div>
   </div>
 </nav>
+<script>
+function toggleNotification(x) {
+  x.classList.toggle("fa-bell-slash");
+}
+</script>
