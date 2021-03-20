@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Bargains-BargainShare</title>
@@ -6,15 +6,14 @@
     <link rel="icon" href="./images/logo.png">
     <link rel="stylesheet" type="text/css" href="./styles/navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="./styles/ProductList.css"> 
+    <link rel="stylesheet" type="text/css" href="./styles/ProductList.css">
   </head>
   <body>
     <header>
       <?php include './php/NavBar.php';?>
     </header>
-    <a class="Create post"href="ProductPost.php">Create Product Post</a>
 
-    <?php
+ <?php
 
   // Array of each colums
   $ProductName = [];
@@ -33,11 +32,19 @@
 
  include './php/ConnectDb.php';
 
+ //Get search value
+ $str = $_GET['search'];
+
  //find the value in the database
-  $sql = "SELECT * FROM ProductPostsDatabase";
+  $sql = "SELECT * FROM ProductPostsDatabase WHERE ItemName LIKE '%".$str."%'";
   $result = $conn->query($sql);
   $count=mysqli_num_rows($result);
  
+
+  if($count ==0){
+    echo ("No Result");
+  }
+  else{
 
 // put the value inthe each array
   while($row = $result->fetch_assoc()){
@@ -80,16 +87,16 @@
             echo "<h5> £".$ProductPrice[$i]."</h5>";
             echo "</div>";
             echo "</div>";
-            if ($i%6==0 && $i!=0) {
+            if ($i%6 ==0) {
             echo "</div>";
             echo "<div class='row'>";
             echo "<hr>";
-
             }
         } 
         echo "</div>"; 
         echo "</div>";
 
+      }
 
 
       $conn->close(); 
@@ -100,3 +107,4 @@
 
 
   </body>
+

@@ -1,0 +1,103 @@
+.ViewPostContainer , .Comment{
+    margin: 10px;
+    border: 1px black solid;
+    padding: 50px;
+    box-shadow: 0 4px 8px 0 rgb(255 127 39 / 50%), 0 6px 20px 0 rgb(255 127 39 / 0%);
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.ViewPostContainer *{
+    display: inline-block;
+    vertical-align: text-top;
+    margin-top: 0px;
+}
+
+.SkipLine{
+  display: block;
+}
+
+.SkipLine *{
+  margin-right: 5px;
+}
+
+.ProductPicNDetails {
+  display: block;
+
+}
+
+.ProductDetails * {
+    display: block;
+}
+
+.ProfilePic{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.ProductMainPic {
+    width: 40%;
+}
+
+.ProductMainPic img{
+    width: 100%;
+}
+
+
+.ProductMessage, .CommentContent{
+  width: 100%;
+  border: 1px black solid;
+  padding: 10px;
+}
+
+.NumberBar{
+  display: block;
+  margin-top: 20px;
+}
+
+.NumberBar * {
+    vertical-align: initial;
+}
+
+.NumberBar button{
+  color: black;
+  background: white;
+  border: none;
+  cursor: pointer;
+  outline:none;
+}
+
+.NumberBar i{
+  margin-left: 20px;
+}
+
+.ProductDetails{
+  margin-left: 10%;
+  width: 45%;
+}
+/* ProductName */
+.ProductDetails h1{
+  color: black;
+}
+/* Product Discount */
+.ProductDetails h2{
+  color: #ff7f27;
+}
+/* Product Original Price */
+.ProductDetails h3{
+  color: gray;
+}
+
+.AdditionalImgBlock img{
+  width: 200px;
+  display:inline-block;
+}
+
+.Comment img, .Comment h2{
+  display: inline-block;
+}
+
+.AdditionalImgBlock{
+  display: block;
+}

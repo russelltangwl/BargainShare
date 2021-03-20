@@ -24,11 +24,11 @@
  position:  relative;
  left: 25px;
  top: 32px;
-} 
+}
 
 .ProductList .row{
   margin-left: 30px;
-  display: inline-block;
+  display:block;
   margin-top: 5px;
   margin-bottom: 5px;
   border-bottom: : 1px solid gray;
@@ -36,7 +36,7 @@
 }
 
 /* Restrict Size of Each Product */
-.ProductList .col-md-7{
+.ProductList .col-md-3{
   display: inline-block;
   width: 200px;
   height: 300px;
@@ -62,7 +62,7 @@
 .ProductList .product-bottom h4{
   font-size: 20px;
   font-weight: bold;
-  
+
 }
 .ProductList .product-bottom h5{
   font-size:15px;
@@ -106,10 +106,10 @@
 
 }
 /*Product Box when touched*/
-.ProductList .col-md-7:hover {
+.ProductList .col-md-3:hover {
   border: 1px solid gray;
   transition: none;
- 
+
 }
 /*horizontal line*/
 .ProductList hr {

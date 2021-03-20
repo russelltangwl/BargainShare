@@ -171,12 +171,12 @@ nav .MyAccount-content a:hover{
   height:300px;
   margin-top: 50px;
   margin-left: 50px;
-  margin-bottom:30px; 
+  margin-bottom:30px;
   padding-top:30px;
   padding-left: 10px;
   display: inline-block;
   border: 2px solid orange;
-  border-radius:25px; 
+  border-radius:25px;
   background-color: orange;
 }
 /* Search bar */
