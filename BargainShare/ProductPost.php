@@ -57,7 +57,7 @@
 			<textarea  rows="10" cols="50" name="Message" id="Message"></textarea><br><br>
 
 			<p>By creating a post you agree to our <a href="Terms.php">Terms & Privacy</a>.</p>
-			<input type="submit" name="UploadProductPost" class="ProcductPost-Btn" value="Post">
+			<input type="submit" name="UploadProductPost" class="ProductPost-Btn" value="Post">
 		</fieldset>
 	</form>
 </body>

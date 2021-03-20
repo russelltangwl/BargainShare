@@ -45,7 +45,11 @@
         else{
           $ProfilePic = $row["Icon"];
         }
-
+        // Get Main Pic
+        $sql = "SELECT ImageData FROM ImageDatabase WHERE PostID = ". $_GET['PostID']  ." AND SourceDatabase = 'P' AND ImageIndex = 0";
+        $result = $conn->query($sql);
+        $row = mysqli_fetch_array($result);
+        $ProductImage = $row['ImageData'];
       }
       else {
         echo "More than 1 results";
@@ -63,31 +67,62 @@
     ?>
     <div class="ViewPostContainer">
       <div class="SkipLine">
-        <?php echo "<img class='ProfilePic' src=" .$ProfilePic. " alt='Profile Picture'>"; ?>
-        <?php echo "<h2>" . $ProductUserName . "<h2>"; ?>
+        <?php echo "<img class='ProfilePic' src='" .$ProfilePic. "' alt='Profile Picture'>"; ?>
+        <?php echo "<h2>" . $ProductUserName . "</h2>"; ?>
       </div>
 
       <div class="ProductPicNDetails">
-        <img class="ProductMainPic" src="./images/logo.png" alt="Product Picture">
+        <div class="ProductMainPic">
+          <?php echo "<img src='" .$ProductImage. "' alt='Product Image'>"; ?>
+          <div class="NumberBar">
+            <?php echo "<button><i onclick='toggleLike(this)' class='fa fa-heart'></i></button><h5>".$ProductUpvote."</h5>";?>
+            <i class="fa fa-comment">123</i>
+          </div>
+        </div>
         <div class="ProductDetails">
-          <?php echo "<h5>Category: " . $ProductCategory . "</h5>"; ?>
+          <?php echo "<h4>Category: " . $ProductCategory . "</h4>"; ?>
           <div class="ProductDetails-Line2">
             <?php echo "<h1>" . $ProductName . "</h1>"; ?>
             <button type="button" name="AddFavorite">Add Category to Favorite</button>
           </div>
           <div class="ProductDetails-Line3">
             <?php echo "<h3>Original Price: £" . $ProductPrice . "</h3>"; ?>
-            <?php echo "<h3>Discounted Price: £" . $ProductDiscount . "</h3>"; ?>
-            <?php echo "<h5>Valid Until: " . $ProductValidDate . "</h5>"; ?>
-          </div
+            <?php echo "<h2>Discounted Price: £" . $ProductDiscount . "</h2>"; ?>
+            <?php echo "<h4>Valid Until: " . $ProductValidDate . "</h4>"; ?>
+          </div>
+          <div class="ProductMessage">
+            <?php echo "<h5>" . $ProductMessage . "</h5>"; ?>
+          </div>
+        </div>
+        <h2>Other Images:</h2>
+        <div class="AdditionalImgBlock">
+          <?php
+          include './php/ConnectDb.php';
+          $sql = "SELECT ImageData,ImageIndex FROM ImageDatabase WHERE PostID = ". $_GET['PostID']  ." AND SourceDatabase = 'P' ORDER BY ImageIndex";
+          $result = $conn->query($sql);
+          while ($row = $result->fetch_assoc()){
+            if($row['ImageIndex']!=0){
+              echo "<img src='".$row['ImageData']."' alt='Additional Images'>";
+            }
+          } ?>
         </div>
       </div>
-      <div class="NumberBar">
-        <?php echo "<button><i onclick='toggleLike(this)' class='fa fa-heart'></i></button><h5>$ProductUpvote<h5>";?>
-        <i class="fa fa-comment">123</i>
+    </div>
+    <div class="CommentBlock">
+    <?php include './php/GetProductComments.php'; ?>
+      <div class="Comment">
+        <h2>Add Comment:</h2>
+        <form action="./php/UploadComment.php" method="post">
+          <label for="comment">Comment:</label><br>
+    		  <textarea name="comment" cols="40" rows="5"></textarea><br><br>
+
+          <input type="hidden" name="postID" value="<?php echo $_GET['PostID']; ?>">
+          <input type="hidden" name="userID" value="1">
+          <input type="hidden" name="Database" value="P">
+
+          <input type="submit" name="UploadComment" value="Submit">
+        </form>
       </div>
     </div>
-    <div class="ProductMessage">
-      <?php echo "<h5>" . $ProductMessage . "</h5>"; ?>
-    </div>
+
   </body>

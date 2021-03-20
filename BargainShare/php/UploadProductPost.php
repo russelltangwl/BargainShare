@@ -4,6 +4,19 @@ include 'ConnectDb.php';
 
 if(isset($_POST['UploadProductPost'])){
 
+  // Max PostID
+  $sql = "SELECT IFNULL(max(PostID),0)+1 FROM `ProductPostsDatabase`" ;
+  $result = $conn->query($sql);
+  if ($result)
+  {
+    echo ("PostID Gotten");
+  }
+  else{
+    echo ("Error: " . $conn->error);
+  }
+  $row = mysqli_fetch_array($result);
+  $max_PostID = $row[0];
+
   $name = $_FILES['file']['name'];
   $target_dir = "upload/";
   $target_file = $target_dir . basename($_FILES["file"]["name"]);
@@ -29,7 +42,7 @@ if(isset($_POST['UploadProductPost'])){
     $row = mysqli_fetch_array($result);
     $max_ImageID = $row[0];
 
-    $sql = "INSERT INTO `ImageDatabase` (`ImageID`, `ImageData`, `AltText`, `SourceDatabase`, `ImageIndex`) VALUES ('".$max_ImageID."', '".$image."', '".""."', '"."P"."', '0')";
+    $sql = "INSERT INTO `ImageDatabase` (`PostID`,`ImageID`, `ImageData`, `SourceDatabase`, `ImageIndex`) VALUES ('".$max_PostID."','".$max_ImageID."','".$image."','P',0)";
     $records = $conn->query($sql);
     if ($records)
     {
@@ -76,7 +89,7 @@ if(isset($_POST['UploadProductPost'])){
           $row = mysqli_fetch_array($result);
           $max_ImageID = $row[0];
 
-          $sql = "INSERT INTO `ImageDatabase` (`ImageID`, `ImageData`, `AltText`, `SourceDatabase`, `ImageIndex`) VALUES ('".$max_ImageID."', '".$image."', '".""."', '"."P"."', '".$i."')";
+          $sql = "INSERT INTO `ImageDatabase` (`PostID`,`ImageID`, `ImageData`, `SourceDatabase`, `ImageIndex`) VALUES ('".$max_PostID."','".$max_ImageID."','".$image."','P',".$i.")";
           $records = $conn->query($sql);
           if ($records)
           {
@@ -91,20 +104,6 @@ if(isset($_POST['UploadProductPost'])){
         }
     }
 
-
-
-    // Max PostID
-    $sql = "SELECT IFNULL(max(PostID),0)+1 FROM `ProductPostsDatabase`" ;
-    $result = $conn->query($sql);
-    if ($result)
-    {
-      echo ("PostID Gotten");
-    }
-    else{
-      echo ("Error: " . $conn->error);
-    }
-    $row = mysqli_fetch_array($result);
-    $max_PostID = $row[0];
 
     // Count The Main Image as well
     $ImageCount = $ImageCount + 1;
