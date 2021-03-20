@@ -1,7 +1,7 @@
 <?php
 $database_host = "dbhost.cs.man.ac.uk";
-$database_user = "x68617wc";
-$database_pass = "Y12Spirit";
+$database_user = "d07587ph";
+$database_pass = "petarhr2001";
 $database_name = "2020_comp10120_y12";
 $conn = mysqli_connect($database_host, $database_user, $database_pass, $database_name);
 
@@ -13,7 +13,7 @@ else{
   echo "Connected Successfully";
 }
 
-$sql = "SELECT * FROM ProductPostsDatabase";
+$sql = "SELECT * FROM UserDatabase";
 $records = $conn->query($sql);
 if ($records)
 {

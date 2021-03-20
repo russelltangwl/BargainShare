@@ -21,12 +21,25 @@ if(isset($_POST['UploadImage'])){
     $image_base64 = base64_encode(file_get_contents($_FILES['file']['tmp_name']) );
     $image = 'data:image/'.$imageFileType.';base64,'.$image_base64;
 
-    // Insert record
-    $sql = "INSERT INTO `ProductPostsDatabase` (`PostID`, `ItemName`, `Source`, `ItemType`, `Price`, `Discount`, `DiscountValidDate`, `Image`, `UserID`, `Date`) VALUES ('1', 'Testing', 'Testing Website', 'Testing', '3', '2', '2021-02-27', '" . $image . "', '1', CURRENT_TIMESTAMP)";
+  //Insert all data
+  $max_postid = "SELECT IFNULL(max(PostID),0)+1 FROM `ProductPostsDatabase`" ;
+  $result = $conn->query($max_postid);
+  if ($result)
+      {
+        echo ("PostID Gotten");
+      }
+      else{
+        echo ("Error: " . $conn->error);
+        echo ("$max_postid");
+      }
+  $row = mysqli_fetch_array($result);
+  $max_num = $row[0];
+
+  $sql = "INSERT INTO `ProductPostsDatabase` (`PostID`, `ItemName`, `Source`, `ItemType`, `Price`, `Discount`, `DiscountValidDate`, `Image`,`Message`, `UserID`, `Date`) VALUES ('".$max_num."', '".$_POST['ItemName']."', '".$_POST['Source']."', '".$_POST['ItemType']."', '".$_POST['Price']."', '".$_POST['Discount']."', '".$_POST['DiscountValidDate']."', '".$image."','".$_POST['Message']."', '2', CURRENT_TIMESTAMP)";
     $records = $conn->query($sql);
     if ($records)
     {
-      echo ("Connected");
+      echo ("Uploaded SUCCESSFULLY");
     }
     else{
       echo ("Error: " . $conn->error);
@@ -34,6 +47,6 @@ if(isset($_POST['UploadImage'])){
     }
   }
 
+
 }
 ?>
-<a href="DownloadImage.php"> Display Image </a>

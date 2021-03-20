@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <title>Bargains-BargainShare</title>
@@ -11,8 +12,8 @@
     <header>
       <nav>
         <img class="logo" src="./images/logo.png" alt="BargainShare Logo">
-        <a class="left-link" href="index.html">Home</a>
-        <a class="left-link" href="Bargains.html">Bargains</a>
+        <a class="left-link" href="index.php">Home</a>
+        <a class="left-link" href="Bargains.php">Bargains</a>
         <a class="left-link" href="Forum.html">Forum</a>
         <a class="left-link" href="Extensions.html">Extensions</a>
         <a class="left-link" href="About.html">About</a>
@@ -33,16 +34,11 @@
               <a href="MyProfile.html">My Profile</a>
               <a href="MyFavourite.html">My Favourite</a>
               <a href="MyPost.html">My Post</a>
-              <a href="LogOut.html">Log Out</a>
+              <a href="LogOut.php">Log Out</a>
             </div>
           </div>
         </div>
       </nav>
     </header>
-    <?php include 'ConnectDb.php'; ?>
-    <form action="Upload.php" method="post" enctype="multipart/form-data">
-      Select Image File to Upload:
-      <input type="file" name="file">
-      <input type="submit" name="UploadImage" value="Upload">
-    </form>
+    <a class="Create post"href="ProductPost.php">Create</a>
   </body>

@@ -1,0 +1,108 @@
+/*Product List*/
+.ProductList {
+  width: 100%;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  float: left;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.ProductList  h2{
+  background: orange;
+  color: #fff;
+  width: 160px;
+  font-size:24px;
+  padding: 5px;
+}
+
+/* .ProductList  h2:after{
+ content:'';
+ border-top: 40px solid orange;
+ border-right: 40px solid transparent;
+ position:  relative;
+ left: 48px;
+ top: 34px;
+} */
+
+.ProductList .row{
+  display: inline-block;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-bottom: : 1px solid gray;
+  white-space: nowrap;
+}
+
+/* Restrict Size of Each Product */
+.ProductList .col-md-3{
+  display: inline-block;
+  width: 200px;
+  height: 300px;
+  padding: 20px;
+  border: 1px solid gray;
+  margin: 10px;
+  white-space: nowrap;
+}
+
+.ProductList img{
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ProductList .product-top{
+  height: 200px;
+}
+
+.ProductList .product-bottom .fa{
+  color:red;
+  font-size: 10px;
+}
+
+.ProductList .product-bottom h3{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.ProductList .product-bottom h5{
+  font-size:15px;
+  padding-bottom: 10px;
+}
+
+.ProductList .overlay{
+  display: block;
+  opacity: 0;
+  position:absolute;
+  margin-top:-180px;
+  margin-left: -20px;
+  white-space: normal;
+  width:70px;
+
+}
+
+.ProductList .product-top:hover .overlay{
+  opacity: 1;
+  margin-left: 0px;
+  transition: 0.5s;
+
+}
+
+.ProductList .overlay .fa{
+  cursor: pointer;
+  background-color: orange;
+  color:#000;
+  height: 35px;
+  width: 35px;
+  font-size: 20px;
+  padding: 7px;
+  margin-left: 5%;
+  margin-bottom: 5%;
+}
+
+.ProductList .overlay .btn-secondary{
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+
+}

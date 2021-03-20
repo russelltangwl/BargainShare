@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>BargainShare</title>
+    <title>Forum-BargainShare</title>
     <meta charset="utf-8">
     <link rel="icon" href="./images/logo.png">
     <link rel="stylesheet" type="text/css" href="./styles/navbar.css">
@@ -11,7 +11,7 @@
     <header>
       <nav>
         <img class="logo" src="./images/logo.png" alt="BargainShare Logo">
-        <a class="left-link" href="index.html">Home</a>
+        <a class="left-link" href="index.php">Home</a>
         <a class="left-link" href="Bargains.php">Bargains</a>
         <a class="left-link" href="Forum.html">Forum</a>
         <a class="left-link" href="Extensions.html">Extensions</a>
