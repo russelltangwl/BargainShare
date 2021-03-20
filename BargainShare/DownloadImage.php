@@ -1,5 +1,5 @@
 <?php
-include 'dbconnection.php';
+include 'ConnectDb.php';
 
  $sql = "SELECT Image from ProductPostsDatabase WHERE PostID=1";
  $result = $conn->query($sql);

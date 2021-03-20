@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="./styles/navbar.css">
 </head>
 <body>
-	<?php include 'dbconnection.php';?>
+	<?php include 'ConnectDb.php';?>
 	<header>
       <nav>
         <img class="logo" src="./images/logo.png" alt="BargainShare Logo">
@@ -52,8 +52,8 @@
     <label>Discount:</label>
     <input type='double' name='Discount' id='Discount'><br>
     <label>DiscountValidDate:</label>
-    <input type='double' name='DiscountValidDate' id='DiscountValidDate'><br> 
-     <label>Select Image File to Upload:</label> 
+    <input type='double' name='DiscountValidDate' id='DiscountValidDate'><br>
+     <label>Select Image File to Upload:</label>
       <input type="file" name="file"><br>
       <input type="submit" name="UploadImage" value="Register"> -->
       <div class="container">
@@ -79,9 +79,9 @@
     <label for="DiscountValidDate"><b>DiscountValidDate</b></label>
     <input type="double" placeholder="Enter DiscountValidDate" name='DiscountValidDate' id='DiscountValidDate'required><br><br>
 
-    <label for="Image"><b>Image</b></label> 
+    <label for="Image"><b>Image</b></label>
     <input type="file" name="file"><br><br>
-   
+
 
     <label for="message"><b>Message</b></label>
     <textarea rows="10" cols="50" name="message" id="message"></textarea><br><br>
@@ -91,17 +91,17 @@
   </div>
 
     </form>
-<!-- 
-  	<?php getproductDetails(); ?> 
+<!--
+  	<?php getproductDetails(); ?>
    -->
 
 </body>
 </html>
 <?php
 //function getproductDetails(){
-	//include 'dbconnection.php';
+	//include 'ConnectDb.php';
   	// $regForm = "
-  	//  <form method='POST' action='productpost.php'>
+  	//  <form method='POST' action='ProductPost.php'>
   	//  <label>ItemName:</label>
   	// <input type='varchar(30)' name='ItemName' id='ItemName'><br>
   	//  <label>Source:</label>
@@ -113,7 +113,7 @@
   	// <label>Discount:</label>
   	// <input type='double' name='Discount' id='Discount'><br>
   	// <label>DiscountValidDate:</label>
-  	// <input type='double' name='DiscountValidDate' id='DiscountValidDate'><br>	
+  	// <input type='double' name='DiscountValidDate' id='DiscountValidDate'><br>
   	//  <button>Register</button>
   	// </form> ";
 

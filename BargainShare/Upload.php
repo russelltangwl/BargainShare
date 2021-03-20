@@ -1,6 +1,6 @@
 <?php
 # UPLOAD IMAGE TO SQL SUCCESSFULLY
-include 'dbconnection.php';
+include 'ConnectDb.php';
 
 if(isset($_POST['UploadImage'])){
 
@@ -26,7 +26,7 @@ if(isset($_POST['UploadImage'])){
   $result = $conn->query($max_postid);
   if ($result)
       {
-        echo ("Connected");
+        echo ("PostID Gotten");
       }
       else{
         echo ("Error: " . $conn->error);
@@ -35,11 +35,11 @@ if(isset($_POST['UploadImage'])){
   $row = mysqli_fetch_array($result);
   $max_num = $row[0];
 
-  $sql = "INSERT INTO `ProductPostsDatabase` (`PostID`, `ItemName`, `Source`, `ItemType`, `Price`, `Discount`, `DiscountValidDate`, `Image`,`Message`, `UserID`, `Date`) VALUES ('".$max_num."', '".$_POST[ItemName]."', '".$_POST[Source]."', '".$_POST[ItemType]."', '".$_POST[Price]."', '".$_POST[Discount]."', '".$_POST[DiscountValidDate]."', '".$image."','".$_POST[Message]."', '2', CURRENT_TIMESTAMP)";
+  $sql = "INSERT INTO `ProductPostsDatabase` (`PostID`, `ItemName`, `Source`, `ItemType`, `Price`, `Discount`, `DiscountValidDate`, `Image`,`Message`, `UserID`, `Date`) VALUES ('".$max_num."', '".$_POST['ItemName']."', '".$_POST['Source']."', '".$_POST['ItemType']."', '".$_POST['Price']."', '".$_POST['Discount']."', '".$_POST['DiscountValidDate']."', '".$image."','".$_POST['Message']."', '2', CURRENT_TIMESTAMP)";
     $records = $conn->query($sql);
     if ($records)
     {
-      echo ("Connected");
+      echo ("Uploaded SUCCESSFULLY");
     }
     else{
       echo ("Error: " . $conn->error);
@@ -50,4 +50,3 @@ if(isset($_POST['UploadImage'])){
 
 }
 ?>
-

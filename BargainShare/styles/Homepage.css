@@ -1,8 +1,5 @@
-body{
-  margin: 0px;
-}
-
 nav{
+  float: right;
   display: flex;
   height: 50px;
   border-bottom: 1px solid black;
@@ -11,7 +8,7 @@ nav{
   text-align: center;
   vertical-align: middle;
   padding: 0px;
-  margin: 0px;
+  margin-top: 40px;
   box-sizing: content-box;
   font-family: "Times New Roman", Times, serif;
 }
@@ -49,23 +46,23 @@ nav a:hover{
 }
 
 /* Search bar */
-nav form{
+/*nav form{
   display: flex;
   flex-grow: 1;
   min-width: 100px;
   padding: 7px;
 }
-
+*/
 /* Search Bar Textbox */
-nav input{
+/*nav input{
   width: 80%;
   height: 30px;
   border: 1px solid black;
   outline:none;
 }
-
+*/
 /* Search Bar Button */
-nav form button{
+/*nav form button{
   height: 30px !important;
   background: #ff9b57 !important;
   border: 1px solid black !important;
@@ -73,7 +70,7 @@ nav form button{
   padding-right: 10px;
   border-left: none !important;
 }
-
+*/
 
 /* Notification Bell and Search Bar Button*/
 nav button{
@@ -165,4 +162,35 @@ nav .MyAccount-content a:hover{
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+}
+/*.backimage{
+  background-image:url("./images/homeimage.jpeg");
+}*/
+.Wrapper{
+  width: 600px;
+  height:300px;
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-bottom:30px; 
+  padding-top:30px;
+  padding-left: 10px;
+  display: inline-block;
+  border: 2px solid orange;
+  border-radius:25px; 
+  background-color: orange;
+}
+/* Search bar */
+.Search form{
+  display: flex;
+  flex-grow: 1;
+  min-width: 100px;
+  padding: 7px;
+}
+
+/* Search Bar Textbox */
+.Search input{
+  width: 80%;
+  height: 30px;
+  border: 1px solid black;
+  outline:none;
 }
