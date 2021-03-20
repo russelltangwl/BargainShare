@@ -14,13 +14,12 @@ if(isset($_POST['UploadComment'])){
     $max_CommentID = $row[0];
 
     $sql = "INSERT INTO `CommentDatabase` (`CommentID`, `CommentContent`, `Date`, `SourceDatabase`, `PostID`, `UserID`) VALUES ('".$max_CommentID."', '".$_POST['comment']."', CURRENT_TIMESTAMP,'".$_POST['Database']."', '" .$_POST['postID']."', '". $_POST['userID'] ."')";
-    echo $sql;
     $records = $conn->query($sql);
     if ($records)
     {
       echo ("Uploaded SUCCESSFULLY");
       echo "<script language='javascript'>\n";
-      echo "alert('Upload successful!'); window.location.href='../ViewProductPost.php?PostID=$max_PostID';";
+      echo "alert('Upload successful!'); window.location.href='../ViewProductPost.php?PostID=".$_POST['postID']."';";
       echo "</script>\n";
       exit;
     }
