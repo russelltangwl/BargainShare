@@ -10,7 +10,7 @@
   <a class="left-link" href="Extensions.php">Extensions</a>
   <a class="left-link" href="About.php">About</a>
   <form action="/search.php">
-    <input type="text" placeholder="Search..">
+    <input name="q" type="text" placeholder="Search..">
     <button type="submit"><i class="fa fa-search"></i></button>
   </form>
   <div class="MyAccount-container">
