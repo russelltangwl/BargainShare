@@ -7,18 +7,15 @@
 	<link rel="icon" href="./images/logo.png">
 	<link rel="stylesheet" type="text/css" href="./styles/ProductPost.css">
 	<link rel="stylesheet" type="text/css" href="./styles/navbar.css">
-	<!--     <style>
-	div#register {
-	width:50%;
-	margin-left: auto;
-	margin-right: auto;
-}
-</style> -->
-
 </head>
 <body>
 	<header>
 		<?php include './php/NavBar.php';?>
+		<?php
+		if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+				header("location: Login.php");
+				exit;
+		} ?>
 	</header>
 	<form class="PostProduct" action="./php/UploadProductPost.php" method="post" enctype="multipart/form-data">
 		<fieldset>
@@ -55,6 +52,8 @@
 
 			<label for="Message"><b>Message: </b></label>
 			<textarea  rows="10" cols="50" name="Message" id="Message"></textarea><br><br>
+
+			<input type="hidden" name="UserID" value='<?php echo $_SESSION['UserID']; ?>'>
 
 			<p>By creating a post you agree to our <a href="Terms.php">Terms & Privacy</a>.</p>
 			<input type="submit" name="UploadProductPost" class="ProductPost-Btn" value="Post">

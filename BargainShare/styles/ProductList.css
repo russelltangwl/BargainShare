@@ -28,7 +28,7 @@
 
 .ProductList .row{
   margin-left: 30px;
-  display: inline-block;
+  display:block;
   margin-top: 5px;
   margin-bottom: 5px;
   border-bottom: : 1px solid gray;

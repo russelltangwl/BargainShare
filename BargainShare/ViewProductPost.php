@@ -75,7 +75,7 @@
         <div class="ProductMainPic">
           <?php echo "<img src='" .$ProductImage. "' alt='Product Image'>"; ?>
           <div class="NumberBar">
-            <?php echo "<button><i onclick='toggleLike(this)' class='fa fa-heart'></i></button><h5>".$ProductUpvote."</h5>";?>
+            <?php echo "<button><i onclick='toggleLike(this)' class='fa fa-heart fa-lg'></i></button><h5>".$ProductUpvote."</h5>";?>
             <i class="fa fa-comment">123</i>
           </div>
         </div>
@@ -110,19 +110,46 @@
     </div>
     <div class="CommentBlock">
     <?php include './php/GetProductComments.php'; ?>
-      <div class="Comment">
-        <h2>Add Comment:</h2>
-        <form action="./php/UploadComment.php" method="post">
-          <label for="comment">Comment:</label><br>
-    		  <textarea name="comment" cols="40" rows="5"></textarea><br><br>
 
-          <input type="hidden" name="postID" value="<?php echo $_GET['PostID']; ?>">
-          <input type="hidden" name="userID" value="1">
-          <input type="hidden" name="Database" value="P">
+      <!-- Add Comment Function -->
+      <?php
+      if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+        $UserID = $_SESSION['UserID'];
+        // GET USER ICON
+        $sql = "SELECT Name,Icon FROM UserDatabase WHERE UserID = ". $UserID;
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+        $ProductUserName = $row["Name"];
+        if($row["Icon"] === NULL){
+          $ProfilePic = "./images/nullProfilePic.png";
+        }
+        else{
+          $ProfilePic = $row["Icon"];
+        }
+        echo "<div class='Comment''>
+          <h2>Add Comment:</h2>
+          <div class='SkipLine'>
+            <img class='ProfilePic' src='" .$ProfilePic. "' alt='Profile Picture'>
+            <h2>" . $ProductUserName . "</h2>
+          </div>
+          <form action='./php/UploadComment.php' method='post'>
+            <label for='comment'>Comment:</label><br>
+      		  <textarea name='comment' cols='40' rows='5'></textarea><br><br>
 
-          <input type="submit" name="UploadComment" value="Submit">
-        </form>
-      </div>
+            <input type='hidden' name='postID' value='".$_GET['PostID']."'>
+            <input type='hidden' name='userID' value='".$UserID."'>
+            <input type='hidden' name='Database' value='P'>
+
+            <input type='submit' name='UploadComment' value='Submit'>
+          </form>
+        </div>";
+      }
+
+
+      ?>
+
+
+
     </div>
 
   </body>
