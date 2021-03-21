@@ -7,18 +7,15 @@
 	<link rel="icon" href="./images/logo.png">
 	<link rel="stylesheet" type="text/css" href="./styles/ProductPost.css">
 	<link rel="stylesheet" type="text/css" href="./styles/navbar.css">
-	<!--     <style>
-	div#register {
-	width:50%;
-	margin-left: auto;
-	margin-right: auto;
-}
-</style> -->
-
 </head>
 <body>
 	<header>
 		<?php include './php/NavBar.php';?>
+		<?php
+		if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+				header("location: Login.php");
+				exit;
+		} ?>
 	</header>
 	<form class="PostProduct" action="./php/UploadProductPost.php" method="post" enctype="multipart/form-data">
 		<fieldset>
@@ -32,8 +29,23 @@
 			<label for="Source"><b>URL: </b></label>
 			<input type="text" placeholder="Enter URL" name='Source' id='Source'><br><br>
 
-			<label for="ItemType"><b>ItemType: </b></label>
-			<input type="text" placeholder="Enter ItemType" name='ItemType' id='ItemType'required><br><br>
+			<label for ="ItemType"><b>Category: </b></label>
+			<select name="ItemType" id="ItemType">
+				<option value="Home & Interior">Home & Interior</option>
+				<option value="Garden & Patio">Garden & Patio</option>
+				<option value="Kids & Family">Kids & Family</option>
+				<option value="Toys & Hobbies">Toys & Hobbies</option>
+				<option value="Gaming & Entertainment">Gaming & Entertainment</option>
+				<option value="Computing">Computing</option>
+				<option value="Phones & Wearables">Phones & Wearables</option>
+				<option value="Sound & Vision">Sound & Vision</option>
+				<option value="Photography">Photography</option>
+				<option value="Clothing & Accessories">Clothing & Accessories</option>
+				<option value="Health & Beauty">Health & Beauty</option>
+				<option value="Sports & Outdoor">Sports & Outdoor</option>
+				<option value="Do it yourself">Do it yourself</option>
+              	<option value="Motor Transport">Motor Transport</option>
+			</select><br><br>
 
 			<label for="Original Price"><b>Price: </b></label>
 			<input type="number" step="0.01" placeholder="Enter Price" name='Price' id='Price'required><br><br>
@@ -55,6 +67,8 @@
 
 			<label for="Message"><b>Message: </b></label>
 			<textarea  rows="10" cols="50" name="Message" id="Message"></textarea><br><br>
+
+			<input type="hidden" name="UserID" value='<?php echo $_SESSION['UserID']; ?>'>
 
 			<p>By creating a post you agree to our <a href="Terms.php">Terms & Privacy</a>.</p>
 			<input type="submit" name="UploadProductPost" class="ProductPost-Btn" value="Post">

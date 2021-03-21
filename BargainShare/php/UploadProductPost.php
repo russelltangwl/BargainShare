@@ -108,7 +108,8 @@ if(isset($_POST['UploadProductPost'])){
     // Count The Main Image as well
     $ImageCount = $ImageCount + 1;
 
-    $sql = "INSERT INTO `ProductPostsDatabase` (`PostID`, `ItemName`, `Source`, `ItemType`, `Price`, `Discount`, `DiscountValidDate`, `ImageCount`,`Message`, `UserID`, `Date`, `NoOfUpVotes`) VALUES ('".$max_PostID."', '".$_POST['ItemName']."', '".$_POST['Source']."', '".$_POST['ItemType']."', '".$_POST['Price']."', '".$_POST['Discount']."', '".$_POST['DiscountValidDate']."', '".$ImageCount."','".$_POST['Message']."', '1', CURRENT_TIMESTAMP, '0')";
+    $sql = "INSERT INTO `ProductPostsDatabase` (`PostID`, `ItemName`, `Source`, `ItemType`, `Price`, `Discount`, `DiscountValidDate`, `ImageCount`,`Message`, `UserID`, `Date`, `NoOfUpVotes`) VALUES ('".$max_PostID."', '".$_POST['ItemName']."', '".$_POST['Source']."', '".$_POST['ItemType']."', '".$_POST['Price']."', '".$_POST['Discount']."', '".$_POST['DiscountValidDate']."', '".$ImageCount."','".$_POST['Message']."', '".$_POST['UserID']."', CURRENT_TIMESTAMP, '0')";
+    echo $sql;
     $records = $conn->query($sql);
     if ($records)
     {

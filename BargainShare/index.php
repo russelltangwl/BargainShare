@@ -11,54 +11,78 @@
   <head>
   <body>
     <header>
-
-    </header>
-    <div class="backimage">
-      <nav>
-        <img class="logo" src="./images/logo.png" alt="BargainShare Logo">
-        <a class="left-link" href="index.php">Home</a>
-        <a class="left-link" href="Bargains.php">Bargains</a>
-        <a class="left-link" href="Forum.php">Forum</a>
-        <a class="left-link" href="Extensions.php">Extensions</a>
-        <a class="left-link" href="About.php">About</a>
-        <div class="MyAccount-container">
-          <button><i onclick="toggleNotification(this)" class="fa fa-bell"></i></button>
+      <div class="backimage">
+                  <nav id="navbar">
+            <img class="logo" src="./images/logo.png" alt="BargainShare Logo">
+            <a class="left-link" href="index.php">Home</a>
+            <a class="left-link" href="Bargains.php">Bargains</a>
+            <a class="left-link" href="Forum.php">Forum</a>
+            <a class="left-link" href="Extensions.php">Extensions</a>
+            <a class="left-link" href="About.php">About</a>
+            <div class="MyAccount-container">
+              <button><i onclick="toggleNotification(this)" class="fa fa-bell"></i></button>
+              <div class="MyAccount-link">
+                <button class="MyAccount-btn">My Account<i class="fa fa-caret-down"></i></button>
+                <div class="MyAccount-content">
+                  <?php
+                  session_start();
+                  if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+                      echo "<a href='MyProfile.php'>My Profile</a>";
+                      echo "<a href='MyFavourite.php'>My Favourite</a>";
+                      echo "<a href='MyPost.php'>My Post</a>";
+                      echo "<a href='LogOut.php'>Log Out</a>";
+                  }
+                  else {
+                    echo "<a href='Login.php'>Login</a>";
+                    echo "<a href='Register.php'>Register</a>";
+                  } ?>
+                </div>
+              </div>
+            </div>
+          </nav>
           <script>
           function toggleNotification(x) {
             x.classList.toggle("fa-bell-slash");
           }
           </script>
-          <div class="MyAccount-link">
-            <button class="MyAccount-btn">My Account<i class="fa fa-caret-down"></i></button>
-            <div class="MyAccount-content">
-              <a href="MyProfile.php">My Profile</a>
-              <a href="MyFavourite.php">My Favourite</a>
-              <a href="MyPost.php">My Post</a>
-              <a href="LogOut.php">Log Out</a>
-            </div>
+
+        <div class="Wrapper">
+          <div class="Search">
+            <h1 class="title"><b>Bargain Share</b></h1>
+            <h3><i>search and compare</i></h3>
+            <form action="Search.php" method="GET">
+             <select name="category" id="category">
+              <option>All department</option>
+              <option value="Home & Interior">Home & Interior</option>
+              <option value="Garden & Patio">Garden & Patio</option>
+              <option value="Kids & Family">Kids & Family</option>
+              <option value="Toys & Hobbies">Toys & Hobbies</option>
+              <option value="Gaming & Entertainment">Gaming & Entertainment</option>
+              <option value="Computing">Computing</option>
+              <option value="Phones & Wearables">Phones & Wearables</option>
+              <option value="Sound & Vision">Sound & Vision</option>
+              <option value="Photography">Photography</option>
+              <option value="Clothing & Accessories">Clothing & Accessories</option>
+              <option value="Health & Beauty">Health & Beauty</option>
+              <option value="Sports & Outdoor">Sports & Outdoor</option>
+              <option value="Do it yourself">Do it yourself</option>
+              <option value="Motor Transport">Motor Transport</option>
+            </select> 
+            <input type="text" placeholder="Search.." name="search" id="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
           </div>
         </div>
-      </nav>
-      <div class="Wrapper">
-        <div class="Search">
-          <h1 class="title"><b>Bargain Share</b></h1>
-          <h3><i>search and compare</i></h3>
-          <form action="Search.php" method="GET">
-          <input type="text" placeholder="Search.." name="search" id="search">
-          <button type="submit"><i class="fa fa-search"></i></button>
-          </form>
-        </div>
       </div>
-    </div>
-
+    </header>
 
     <!-- Product List -->
     <div class="ProductList">
       <div class="row">
-        <h3><b>Best Seller</b></h3>
+        <h3><b>Hottest</b></h3>
        <!--  <a href="Bargains.php">see more details</a> -->
         <?php
-          include './php/Bestseller.php';
+          include './php/Hottest.php';
           for ($i=0; $i <7 ; $i++) {
             echo "<div class='col-md-3'>";
             echo "<div class='product-top'>";

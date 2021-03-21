@@ -6,7 +6,7 @@
     <link rel="icon" href="./images/logo.png">
     <link rel="stylesheet" type="text/css" href="./styles/navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="./styles/ProductList.css"> 
+    <link rel="stylesheet" type="text/css" href="./styles/ProductList.css">
   </head>
   <body>
     <header>
@@ -27,17 +27,17 @@
   $ProductImgCount = [];
   $ProductSource = [];
   $ProductDate = [];
-  $ProductUserID = [];  
+  $ProductUserID = [];
   $Productimage =[];
   $ProductID =[];
 
  include './php/ConnectDb.php';
 
  //find the value in the database
-  $sql = "SELECT * FROM ProductPostsDatabase";
+  $sql = "SELECT * FROM ProductPostsDatabase ORDER BY NoOfUpVotes DESC";
   $result = $conn->query($sql);
   $count=mysqli_num_rows($result);
- 
+
 
 // put the value inthe each array
   while($row = $result->fetch_assoc()){
@@ -55,12 +55,12 @@
     $ProductUserID[] = $row["UserID"];
 
 
-    //Find the main image 
+    //Find the main image
     $image = "SELECT ImageData FROM ImageDatabase WHERE ImageIndex=0 and PostID = ".$row["PostID"];
     $imageresult = $conn -> query($image);
     $imagerow = $imageresult->fetch_assoc();
     $Productimage[] = $imagerow["ImageData"];
- 
+
 
     }
         echo "<div class='ProductList'>";
@@ -86,13 +86,13 @@
             echo "<hr>";
 
             }
-        } 
-        echo "</div>"; 
+        }
+        echo "</div>";
         echo "</div>";
 
 
 
-      $conn->close(); 
+      $conn->close();
 
 
  ?>
