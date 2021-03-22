@@ -67,6 +67,7 @@
               <option value="Sports & Outdoor">Sports & Outdoor</option>
               <option value="Do it yourself">Do it yourself</option>
               <option value="Motor Transport">Motor Transport</option>
+              <option value="Others">Others</option>
             </select> 
             <input type="text" placeholder="Search.." name="search" id="search">
             <button type="submit"><i class="fa fa-search"></i></button>

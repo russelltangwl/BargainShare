@@ -45,6 +45,7 @@
 				<option value="Sports & Outdoor">Sports & Outdoor</option>
 				<option value="Do it yourself">Do it yourself</option>
               	<option value="Motor Transport">Motor Transport</option>
+              	<option value="Others">Others</option>
 			</select><br><br>
 
 			<label for="Original Price"><b>Price: </b></label>
