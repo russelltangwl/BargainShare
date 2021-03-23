@@ -10,6 +10,24 @@
   <a class="left-link" href="Extensions.php">Extensions</a>
   <a class="left-link" href="About.php">About</a>
   <form action="Search.php">
+    <select name="category" id="category">
+              <option>All department</option>
+              <option value="Home & Interior">Home & Interior</option>
+              <option value="Garden & Patio">Garden & Patio</option>
+              <option value="Kids & Family">Kids & Family</option>
+              <option value="Toys & Hobbies">Toys & Hobbies</option>
+              <option value="Gaming & Entertainment">Gaming & Entertainment</option>
+              <option value="Computing">Computing</option>
+              <option value="Phones & Wearables">Phones & Wearables</option>
+              <option value="Sound & Vision">Sound & Vision</option>
+              <option value="Photography">Photography</option>
+              <option value="Clothing & Accessories">Clothing & Accessories</option>
+              <option value="Health & Beauty">Health & Beauty</option>
+              <option value="Sports & Outdoor">Sports & Outdoor</option>
+              <option value="Do it yourself">Do it yourself</option>
+              <option value="Motor Transport">Motor Transport</option>
+              <option value="Others">Others</option>
+            </select>
     <input name="search" type="text" placeholder="Search..">
     <button type="submit"><i class="fa fa-search"></i></button>
   </form>

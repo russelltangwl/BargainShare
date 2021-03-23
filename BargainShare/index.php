@@ -12,12 +12,63 @@
   <body>
     <header>
       <div class="backimage">
-        <?php include './php/NavBar.php' ?>
+                  <nav id="navbar">
+            <img class="logo" src="./images/logo.png" alt="BargainShare Logo">
+            <a class="left-link" href="index.php">Home</a>
+            <a class="left-link" href="Bargains.php">Bargains</a>
+            <a class="left-link" href="Forum.php">Forum</a>
+            <a class="left-link" href="Extensions.php">Extensions</a>
+            <a class="left-link" href="About.php">About</a>
+            <div class="MyAccount-container">
+              <button><i onclick="toggleNotification(this)" class="fa fa-bell"></i></button>
+              <div class="MyAccount-link">
+                <button class="MyAccount-btn">My Account<i class="fa fa-caret-down"></i></button>
+                <div class="MyAccount-content">
+                  <?php
+                  session_start();
+                  if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+                      echo "<a href='MyProfile.php'>My Profile</a>";
+                      echo "<a href='MyFavourite.php'>My Favourite</a>";
+                      echo "<a href='MyPost.php'>My Post</a>";
+                      echo "<a href='LogOut.php'>Log Out</a>";
+                  }
+                  else {
+                    echo "<a href='Login.php'>Login</a>";
+                    echo "<a href='Register.php'>Register</a>";
+                  } ?>
+                </div>
+              </div>
+            </div>
+          </nav>
+          <script>
+          function toggleNotification(x) {
+            x.classList.toggle("fa-bell-slash");
+          }
+          </script>
+
         <div class="Wrapper">
           <div class="Search">
             <h1 class="title"><b>Bargain Share</b></h1>
             <h3><i>search and compare</i></h3>
             <form action="Search.php" method="GET">
+             <select name="category" id="category">
+              <option>All department</option>
+              <option value="Home & Interior">Home & Interior</option>
+              <option value="Garden & Patio">Garden & Patio</option>
+              <option value="Kids & Family">Kids & Family</option>
+              <option value="Toys & Hobbies">Toys & Hobbies</option>
+              <option value="Gaming & Entertainment">Gaming & Entertainment</option>
+              <option value="Computing">Computing</option>
+              <option value="Phones & Wearables">Phones & Wearables</option>
+              <option value="Sound & Vision">Sound & Vision</option>
+              <option value="Photography">Photography</option>
+              <option value="Clothing & Accessories">Clothing & Accessories</option>
+              <option value="Health & Beauty">Health & Beauty</option>
+              <option value="Sports & Outdoor">Sports & Outdoor</option>
+              <option value="Do it yourself">Do it yourself</option>
+              <option value="Motor Transport">Motor Transport</option>
+              <option value="Others">Others</option>
+            </select>
             <input type="text" placeholder="Search.." name="search" id="search">
             <button type="submit"><i class="fa fa-search"></i></button>
             </form>
@@ -40,7 +91,7 @@
             echo "<div class='overlay'>";
             echo ("<button  type='button' class='btn btn-secondary' title='Show info' onclick =\"location.href ='ViewProductPost.php?PostID=".$ProductID[$i]."'\"><i class='fa fa-eye'></i></button>");
             echo "<button type='button' class='btn btn-secondary' title='Add to favourite'onclick =\"location.href ='MyFavourite.php'\"><i class='fa fa-star'></i>";
-            echo "<button type='button' class='btn btn-secondary' title='Like'><i class='fa fa-heart'></i></button>";
+            echo "<button onclick='window.location.href=`./php/ToggleLike.php?LikePost=".$ProductID[$i]."`' type='button' class='btn btn-secondary' title='Like'><i class='fa fa-heart'></i></button>";
             echo "</div>";
             echo "</div>";
             echo "<div class='product-bottom text-center'>";
@@ -63,7 +114,7 @@
             echo "<div class='overlay'>";
             echo "<button type='button' class='btn btn-secondary' title='Show info' onclick =\"location.href ='ViewProductPost.php?PostID=".$ProductID[$i]."'\"><i class='fa fa-eye'></i></button>";
             echo "<button type='button' class='btn btn-secondary' title='Add to favourite'><i class='fa fa-star' onclick =\"location.href ='MyFavourite.php'\"></i>";
-            echo "<button type='button' class='btn btn-secondary' title='Like'><i class='fa fa-heart'></i></button>";
+            echo "<button onclick='window.location.href=`./php/ToggleLike.php?LikePost=".$ProductID[$i]."`' type='button' class='btn btn-secondary' title='Like'><i class='fa fa-heart'></i></button>";
             echo "</div>";
             echo "</div>";
             echo "<div class='product-bottom text-center'>";

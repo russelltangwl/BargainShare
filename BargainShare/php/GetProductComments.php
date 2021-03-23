@@ -17,15 +17,15 @@
     $row2 = $result2->fetch_assoc();
     $UserName = $row2["Name"];
     if($row2["Icon"] === NULL){
-      $ProfilePic = "./images/nullProfilePic.png";
+      $ProfilePic2 = "./images/nullProfilePic.png";
     }
     else{
-      $ProfilePic = $row2["Icon"];
+      $ProfilePic2 = $row2["Icon"];
     }
 
     echo "<div class='Comment'>";
     echo "<div class='SkipLine'>";
-    echo "<img class='ProfilePic' src='".$ProfilePic."' alt='ProfilePic'>";
+    echo "<img class='ProfilePic' src='".$ProfilePic2."' alt='ProfilePic'>";
     echo "<h2>".$UserName."</h2>";
     echo "</div>";
     echo "<div class='CommentContent'>";

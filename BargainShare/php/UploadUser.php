@@ -4,14 +4,10 @@ if(isset($_POST['CreateAccount'])){
   //Insert all data
   $max_userid = "SELECT IFNULL(max(UserID),0)+1 FROM `UserDatabase`" ;
   $result = $conn->query($max_userid);
-  if ($result)
-      {
-        echo ("UserID Gotten");
-      }
-      else{
-        echo ("Error: " . $conn->error);
-        echo ("$max_userid");
-      }
+  if (!$result){
+      echo ("Error: " . $conn->error);
+      echo ("$max_userid");
+  }
   $row = mysqli_fetch_array($result);
   $max_num = $row[0];
 
@@ -40,7 +36,7 @@ if(isset($_POST['CreateAccount'])){
     $records = $conn->query($sql);
     if ($records)
     {
-      echo ("Uploaded SUCCESSFULLY");
+      // echo ("Uploaded SUCCESSFULLY");
       echo "<script language='javascript'>\n";
   		echo "alert('Register successful'); window.location.href='../MyProfile.php';";
   		echo "</script>\n";

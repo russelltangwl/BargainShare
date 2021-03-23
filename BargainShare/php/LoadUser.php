@@ -7,11 +7,10 @@ $Password = $_POST['Password'];
 
 
 $sql = "SELECT * FROM UserDatabase WHERE Email='$Email' and Password='$Password'";
-
-    if ($result = $conn->query($sql))
-    echo("SQL OK");
-	else
-    echo("Error: " . $conn->error);
+$result = $conn->query($sql);
+    if (!$result){
+      echo("Error: " . $conn->error);
+    }
 
 
 

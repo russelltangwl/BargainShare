@@ -22,8 +22,8 @@
     	$ProductID[] = $row["PostID"];
     	$ProductName[] = $row["ItemName"];
 		$ProductType[] = $row["ItemType"];
-		$ProductPrice[] = $row["Price"];
-		$ProductDiscount[] = $row["Discount"];
+		$ProductPrice[] = $row["Discount"];
+		// $ProductDiscount[] = $row["Discount"];
 		$ProductValidDate[] = $row["DiscountValidDate"];
 		$ProductNoOfUpVote[] = $row["NoOfUpVotes"];
 		$ProductMessage[] = $row["Message"];
