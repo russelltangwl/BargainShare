@@ -32,12 +32,29 @@
     <button type="submit"><i class="fa fa-search"></i></button>
   </form>
   <div class="MyAccount-container">
-    <button><i onclick="toggleNotification(this)" class="fa fa-bell"></i></button>
+    <?php
+      session_start();
+      include 'ConnectDb.php';
+      if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+        $UserID = $_SESSION['UserID'];
+        // GET USER ICON
+        $sql = "SELECT Name,Icon FROM UserDatabase WHERE UserID = ". $UserID;
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+        $ProductUserName = $row["Name"];
+        if($row["Icon"] === NULL){
+          $ProfilePic = "./images/nullProfilePic.png";
+        }
+        else{
+          $ProfilePic = $row["Icon"];
+        }
+        echo "<img class='ProfilePic' src='".$ProfilePic."' alt='Profile Pic'>";
+      }
+     ?>
     <div class="MyAccount-link">
       <button class="MyAccount-btn">My Account<i class="fa fa-caret-down"></i></button>
       <div class="MyAccount-content">
         <?php
-        session_start();
         if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
             echo "<a href='MyProfile.php'>My Profile</a>";
             echo "<a href='MyFavourite.php'>My Favourite</a>";
@@ -52,8 +69,3 @@
     </div>
   </div>
 </nav>
-<script>
-function toggleNotification(x) {
-  x.classList.toggle("fa-bell-slash");
-}
-</script>

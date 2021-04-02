@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <link rel="icon" href="./images/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./styles/navbar.css">
     <link rel="stylesheet" type="text/css" href="./styles/ProductList.css">
     <link rel="stylesheet" type="text/css" href="./styles/Homepage.css">
   <head>
@@ -20,12 +21,29 @@
             <a class="left-link" href="Extensions.php">Extensions</a>
             <a class="left-link" href="About.php">About</a>
             <div class="MyAccount-container">
-              <button><i onclick="toggleNotification(this)" class="fa fa-bell"></i></button>
+              <?php
+                session_start();
+                include './php/ConnectDb.php';
+                if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+                  $UserID = $_SESSION['UserID'];
+                  // GET USER ICON
+                  $sql = "SELECT Name,Icon FROM UserDatabase WHERE UserID = ". $UserID;
+                  $result = $conn->query($sql);
+                  $row = $result->fetch_assoc();
+                  $ProductUserName = $row["Name"];
+                  if($row["Icon"] === NULL){
+                    $ProfilePic = "./images/nullProfilePic.png";
+                  }
+                  else{
+                    $ProfilePic = $row["Icon"];
+                  }
+                  echo "<img class='ProfilePic' src='".$ProfilePic."' alt='Profile Pic'>";
+                }
+               ?>
               <div class="MyAccount-link">
                 <button class="MyAccount-btn">My Account<i class="fa fa-caret-down"></i></button>
                 <div class="MyAccount-content">
                   <?php
-                  session_start();
                   if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
                       echo "<a href='MyProfile.php'>My Profile</a>";
                       echo "<a href='MyFavourite.php'>My Favourite</a>";
@@ -40,11 +58,6 @@
               </div>
             </div>
           </nav>
-          <script>
-          function toggleNotification(x) {
-            x.classList.toggle("fa-bell-slash");
-          }
-          </script>
 
         <div class="Wrapper">
           <div class="Search">
