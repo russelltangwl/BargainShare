@@ -1,7 +1,7 @@
-.ViewPostContainer {
+.ViewPostContainer , .Comment{
     margin: 10px;
     border: 1px black solid;
-    padding: 10px;
+    padding: 50px;
     box-shadow: 0 4px 8px 0 rgb(255 127 39 / 50%), 0 6px 20px 0 rgb(255 127 39 / 0%);
     margin-left: 200px;
     margin-right: 200px;
@@ -9,10 +9,16 @@
 
 .ViewPostContainer *{
     display: inline-block;
+    vertical-align: text-top;
+    margin-top: 0px;
 }
 
 .SkipLine{
   display: block;
+}
+
+.SkipLine *{
+  margin-right: 5px;
 }
 
 .ProductPicNDetails {
@@ -24,30 +30,158 @@
     display: block;
 }
 
-img.ProfilePic {
+.ProfilePic{
     border-radius: 50%;
     width: 30px;
     height: 30px;
 }
 
-img.ProductMainPic {
-    width: 300px;
-    height: 300px;
+.ProductMainPic {
+    width: 40%;
 }
 
-.ProductMessage{
+.ProductMainPic img{
+    width: 100%;
+}
+
+
+.ProductMessage, .CommentContent{
   width: 100%;
+  border: 1px black solid;
+  padding: 10px;
+}
+
+.NumberBar{
+  display: block;
+  margin-top: 20px;
+}
+
+.NumberBar * {
+    vertical-align: initial;
 }
 
 .NumberBar button{
   color: black;
-  height: 50px;
   background: white;
   border: none;
   cursor: pointer;
   outline:none;
 }
 
+.NumberBar i{
+  margin-left: 20px;
+}
+
+.ProductDetails{
+  margin-left: 10%;
+  width: 45%;
+}
+/* ProductName */
 .ProductDetails h1{
-  margin-top: 0px;
+  color: black;
+}
+/* Product Discount */
+.ProductDetails h2{
+  color: #ff7f27;
+}
+/* Product Original Price */
+.ProductDetails h3{
+  color: gray;
+}
+
+.AdditionalImgBlock img{
+  width: 200px;
+  display:inline-block;
+}
+
+.Comment img, .Comment h2{
+  display: inline-block;
+}
+
+.AdditionalImgBlock{
+  display: block;
+}
+
+
+
+/* Report Function */
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 20%; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  display: block;
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 500px;
+  height: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+.modal-content * {
+  display: block;
+}
+
+form.Report {
+    text-align: -webkit-center;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #ff7f27;
+  color: white;
+}
+
+.modal-body {padding: 50px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #ff7f27;
+  color: white;
 }

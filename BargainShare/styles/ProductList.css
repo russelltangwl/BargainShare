@@ -8,27 +8,29 @@
   white-space: nowrap;
 }
 
-.ProductList  h2{
+.ProductList  h3{
+  margin-left: 20px;
   background: orange;
   color: #fff;
   width: 160px;
-  font-size:24px;
-  padding: 5px;
+  font-size:20px;
+  padding: 8px;
 }
 
-/* .ProductList  h2:after{
+ .ProductList h3:after{
  content:'';
  border-top: 40px solid orange;
  border-right: 40px solid transparent;
  position:  relative;
- left: 48px;
- top: 34px;
-} */
+ left: 25px;
+ top: 32px;
+}
 
 .ProductList .row{
-  display: inline-block;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-left: 30px;
+  display:block;
+  margin-top: 5px;
+  margin-bottom: 5px;
   border-bottom: : 1px solid gray;
   white-space: nowrap;
 }
@@ -39,11 +41,12 @@
   width: 200px;
   height: 300px;
   padding: 20px;
-  border: 1px solid gray;
+/*  border: 1px solid gray;*/
   margin: 10px;
   white-space: normal;
 }
 
+/* Size of img*/
 .ProductList img{
   width: 100%;
   height: 100%;
@@ -55,16 +58,12 @@
   height: 200px;
 }
 
-.ProductList .product-bottom .fa{
-  color:red;
-  font-size: 10px;
-}
 
-.ProductList .product-bottom h3{
+.ProductList .product-bottom h4{
   font-size: 20px;
   font-weight: bold;
-}
 
+}
 .ProductList .product-bottom h5{
   font-size:15px;
   padding-bottom: 10px;
@@ -106,3 +105,15 @@
   box-shadow: none !important;
 
 }
+/*Product Box when touched*/
+.ProductList .col-md-3:hover {
+  border: 1px solid gray;
+  transition: none;
+
+}
+/*horizontal line*/
+.ProductList hr {
+  border:1px solid orange;
+  border-radius: 5px;
+}
+/*.ProductList h3,*/

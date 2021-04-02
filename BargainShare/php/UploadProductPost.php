@@ -4,6 +4,15 @@ include 'ConnectDb.php';
 
 if(isset($_POST['UploadProductPost'])){
 
+  // Max PostID
+  $sql = "SELECT IFNULL(max(PostID),0)+1 FROM `ProductPostsDatabase`" ;
+  $result = $conn->query($sql);
+  if (!$result){
+    echo ("Error: " . $conn->error);
+  }
+  $row = mysqli_fetch_array($result);
+  $max_PostID = $row[0];
+
   $name = $_FILES['file']['name'];
   $target_dir = "upload/";
   $target_file = $target_dir . basename($_FILES["file"]["name"]);
@@ -29,13 +38,9 @@ if(isset($_POST['UploadProductPost'])){
     $row = mysqli_fetch_array($result);
     $max_ImageID = $row[0];
 
-    $sql = "INSERT INTO `ImageDatabase` (`ImageID`, `ImageData`, `AltText`, `SourceDatabase`, `ImageIndex`) VALUES ('".$max_ImageID."', '".$image."', '".""."', '"."P"."', '0')";
+    $sql = "INSERT INTO `ImageDatabase` (`PostID`,`ImageID`, `ImageData`, `SourceDatabase`, `ImageIndex`) VALUES ('".$max_PostID."','".$max_ImageID."','".$image."','P',0)";
     $records = $conn->query($sql);
-    if ($records)
-    {
-      echo ("Uploaded Main Image SUCCESSFULLY");
-    }
-    else{
+    if (!$records){
       echo ("Error: " . $conn->error);
       echo ("$sql");
     }
@@ -76,13 +81,9 @@ if(isset($_POST['UploadProductPost'])){
           $row = mysqli_fetch_array($result);
           $max_ImageID = $row[0];
 
-          $sql = "INSERT INTO `ImageDatabase` (`ImageID`, `ImageData`, `AltText`, `SourceDatabase`, `ImageIndex`) VALUES ('".$max_ImageID."', '".$image."', '".""."', '"."P"."', '".$i."')";
+          $sql = "INSERT INTO `ImageDatabase` (`PostID`,`ImageID`, `ImageData`, `SourceDatabase`, `ImageIndex`) VALUES ('".$max_PostID."','".$max_ImageID."','".$image."','P',".$i.")";
           $records = $conn->query($sql);
-          if ($records)
-          {
-            echo ("Uploaded SUCCESSFULLY");
-          }
-          else{
+          if (!$records){
             echo ("Error: " . $conn->error);
             echo ("$sql");
           }
@@ -92,37 +93,37 @@ if(isset($_POST['UploadProductPost'])){
     }
 
 
-
-    // Max PostID
-    $sql = "SELECT IFNULL(max(PostID),0)+1 FROM `ProductPostsDatabase`" ;
-    $result = $conn->query($sql);
-    if ($result)
-    {
-      echo ("PostID Gotten");
-    }
-    else{
-      echo ("Error: " . $conn->error);
-    }
-    $row = mysqli_fetch_array($result);
-    $max_PostID = $row[0];
-
     // Count The Main Image as well
     $ImageCount = $ImageCount + 1;
-
-    $sql = "INSERT INTO `ProductPostsDatabase` (`PostID`, `ItemName`, `Source`, `ItemType`, `Price`, `Discount`, `DiscountValidDate`, `ImageCount`,`Message`, `UserID`, `Date`, `NoOfUpVotes`) VALUES ('".$max_PostID."', '".$_POST['ItemName']."', '".$_POST['Source']."', '".$_POST['ItemType']."', '".$_POST['Price']."', '".$_POST['Discount']."', '".$_POST['DiscountValidDate']."', '".$ImageCount."','".$_POST['Message']."', '1', CURRENT_TIMESTAMP, '0')";
+    // NULL CATCHER
+    if($_POST['Price'] == ''){
+      $_POST['Price'] = "NULL";
+    }
+    else{
+      $_POST['Price'] = "'".$_POST['Price']."'";
+    }
+    if($_POST['DiscountValidDate'] == ''){
+      $_POST['DiscountValidDate'] = "NULL";
+    }
+    else{
+      $_POST['DiscountValidDate'] = "'".$_POST['DiscountValidDate']."'";
+    }
+    $sql = "INSERT INTO `ProductPostsDatabase` (`PostID`, `ItemName`, `Source`, `ItemType`, `Price`, `Discount`, `DiscountValidDate`, `ImageCount`,`Message`, `UserID`, `Date`, `NoOfUpVotes`) VALUES ('".$max_PostID."', '".$_POST['ItemName']."', '".$_POST['Source']."', '".$_POST['ItemType']."', ".$_POST['Price'].", '".$_POST['Discount']."', ".$_POST['DiscountValidDate'].", '".$ImageCount."','".$_POST['Message']."', '".$_POST['UserID']."', CURRENT_TIMESTAMP, '0')";
+    echo $sql;
     $records = $conn->query($sql);
     if ($records)
     {
-      echo ("Uploaded SUCCESSFULLY");
+      // echo ("Uploaded SUCCESSFULLY");
       echo "<script language='javascript'>\n";
-      echo "alert('Upload successful!'); window.location.href='../ViewProductPost.php?PostID=$max_PostID';";
+      echo "window.location.href='../ViewProductPost.php?PostID=$max_PostID';";
       echo "</script>\n";
       exit;
     }
     else{
+      echo $conn->error;
       echo "<script language='javascript'>\n";
       // Return to ProductPost if not Successful
-      echo "alert($conn->error); window.location.href='../ProductPost.php';";
+      echo "alert('Upload Not Successful'); window.location.href='../ProductPost.php';";
       echo "</script>\n";
     }
   }
