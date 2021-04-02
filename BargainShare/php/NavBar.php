@@ -7,7 +7,6 @@
   <a class="left-link" href="index.php">Home</a>
   <a class="left-link" href="Bargains.php">Bargains</a>
   <a class="left-link" href="Forum.php">Forum</a>
-  <a class="left-link" href="Extensions.php">Extensions</a>
   <a class="left-link" href="About.php">About</a>
   <form action="Search.php">
     <select name="category" id="category">
