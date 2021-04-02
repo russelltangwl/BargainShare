@@ -194,7 +194,10 @@
       </div>
     </div>
     <div class="CommentBlock">
-    <?php include './php/GetProductComments.php'; ?>
+    <?php
+      $Database = 'P';
+      include './php/GetComments.php';
+      ?>
 
       <!-- Add Comment Function -->
       <?php
