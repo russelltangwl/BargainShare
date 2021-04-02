@@ -13,7 +13,7 @@
       $ProfilePic = $row["Icon"];
     }
    ?>
-  <img src="<?php echo $ProfilePic; ?>" alt="Profile Pic">
+  <img class="ProfilePic" src="<?php echo $ProfilePic; ?>" alt="Profile Pic">
   <h2><?php echo $UserName; ?></h2>
   <a href="MyProfile.php">My Profile</a>
   <a href="MyFavorite.php">My Favourite</a>

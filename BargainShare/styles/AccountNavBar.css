@@ -29,7 +29,8 @@
 }
 
 .main {
-  margin-left: 140px; /* Same width as the sidebar + left position in px */
+  margin-left: 250px;
+  margin-top: 50px;
   font-size: 28px; /* Increased text to enable scrolling */
   padding: 0px 10px;
 }
