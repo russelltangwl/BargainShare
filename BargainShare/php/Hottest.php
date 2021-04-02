@@ -15,15 +15,15 @@
 	$ProductID =[];
 
 	include './php/ConnectDb.php';
-    $sql = "SELECT * FROM ProductPostsDatabase ORDER BY NoOfUpVotes";
+    $sql = "SELECT * FROM ProductPostsDatabase ORDER BY NoOfUpVotes DESC";
     $result = $conn->query($sql);
 
     while($row = $result->fetch_assoc()){
     	$ProductID[] = $row["PostID"];
     	$ProductName[] = $row["ItemName"];
 		$ProductType[] = $row["ItemType"];
-		$ProductPrice[] = $row["Price"];
-		$ProductDiscount[] = $row["Discount"];
+		$ProductPrice[] = $row["Discount"];
+		// $ProductDiscount[] = $row["Discount"];
 		$ProductValidDate[] = $row["DiscountValidDate"];
 		$ProductNoOfUpVote[] = $row["NoOfUpVotes"];
 		$ProductMessage[] = $row["Message"];

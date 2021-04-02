@@ -1,4 +1,4 @@
-      <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Forum-BargainShare</title>
@@ -55,15 +55,53 @@
         echo "More than 1 results";
       }
 
-      $conn->close();
 
-    }
-    else{
-      echo "<script language='javascript'>\n";
-      // Return to BargainsPage if not Successful
-      echo "alert('Invalid Page'); window.location.href='Bargains.php';";
-      echo "</script>\n";
-    }
+      if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+        $UserID = $_SESSION['UserID'];
+        // GET USER ICON
+        $sql = "SELECT Name,Icon FROM UserDatabase WHERE UserID = ". $UserID;
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+        $ProductUserName = $row["Name"];
+        if($row["Icon"] === NULL){
+          $ProfilePic = "./images/nullProfilePic.png";
+        }
+        else{
+          $ProfilePic = $row["Icon"];
+        }
+
+
+
+        //LIKE Function
+        $_SESSION['LikePost'] = $_GET['PostID'];
+        $sql = "SELECT * FROM LikeDatabase WHERE SourceDatabase = 'P' AND PostID = ".$_GET['PostID']." AND UserID = ". $UserID;
+        $result = $conn->query($sql);
+        if (!$result) {
+          echo $conn->error;
+        }
+        $row = $result->fetch_assoc();
+        if(mysqli_num_rows($result) == 1){
+          $color = "red";
+
+        }
+        else{
+          $color = "black";
+        }
+        }
+        else{
+          $color = "black";
+        }
+
+        // Count Comment
+        $sql = "SELECT * FROM CommentDatabase WHERE SourceDatabase = 'P' AND PostID = ".$_GET['PostID'];
+        $result = $conn->query($sql);
+        if (!$result) {
+          echo $conn->error;
+        }
+        $row = $result->fetch_assoc();
+        $noComment = mysqli_num_rows($result);
+
+
     ?>
     <div class="ViewPostContainer">
       <div class="SkipLine">
@@ -75,8 +113,8 @@
         <div class="ProductMainPic">
           <?php echo "<img src='" .$ProductImage. "' alt='Product Image'>"; ?>
           <div class="NumberBar">
-            <?php echo "<button><i onclick='toggleLike(this)' class='fa fa-heart fa-lg'></i></button><h5>".$ProductUpvote."</h5>";?>
-            <i class="fa fa-comment">123</i>
+            <?php echo "<button><i style='color: ".$color."' onclick='window.location.href=`./php/ToggleLike.php`' class='fa fa-heart fa-lg'></i></button><h5>".$ProductUpvote."</h5>";?>
+            <i class="fa fa-comment"><?php echo $noComment ?></i>
           </div>
         </div>
         <div class="ProductDetails">
@@ -114,18 +152,6 @@
       <!-- Add Comment Function -->
       <?php
       if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-        $UserID = $_SESSION['UserID'];
-        // GET USER ICON
-        $sql = "SELECT Name,Icon FROM UserDatabase WHERE UserID = ". $UserID;
-        $result = $conn->query($sql);
-        $row = $result->fetch_assoc();
-        $ProductUserName = $row["Name"];
-        if($row["Icon"] === NULL){
-          $ProfilePic = "./images/nullProfilePic.png";
-        }
-        else{
-          $ProfilePic = $row["Icon"];
-        }
         echo "<div class='Comment''>
           <h2>Add Comment:</h2>
           <div class='SkipLine'>
@@ -143,6 +169,7 @@
             <input type='submit' name='UploadComment' value='Submit'>
           </form>
         </div>";
+      }
       }
 
 

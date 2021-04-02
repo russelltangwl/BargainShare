@@ -23,13 +23,13 @@
 			<p>Please fill in this form to create a post.</p>
 			<hr>
 
-			<label for="ItemName"><b>ItemName: </b></label>
+			<label for="ItemName"><b>ItemName*: </b></label>
 			<input type="text" placeholder="Enter ItemName" name='ItemName' id='ItemName'required><br><br>
 
 			<label for="Source"><b>URL: </b></label>
 			<input type="text" placeholder="Enter URL" name='Source' id='Source'><br><br>
 
-			<label for ="ItemType"><b>Category: </b></label>
+			<label for ="ItemType"><b>Category*: </b></label>
 			<select name="ItemType" id="ItemType">
 				<option value="Home & Interior">Home & Interior</option>
 				<option value="Garden & Patio">Garden & Patio</option>
@@ -44,25 +44,26 @@
 				<option value="Health & Beauty">Health & Beauty</option>
 				<option value="Sports & Outdoor">Sports & Outdoor</option>
 				<option value="Do it yourself">Do it yourself</option>
-              	<option value="Motor Transport">Motor Transport</option>
-              	<option value="Others">Others</option>
+        <option value="Motor Transport">Motor Transport</option>
+        <option value="Others">Others</option>
 			</select><br><br>
 
 			<label for="Original Price"><b>Price: </b></label>
-			<input type="number" step="0.01" placeholder="Enter Price" name='Price' id='Price'required><br><br>
+			<input type="number" step="0.01" placeholder="Enter Price" name='Price' id='Price'><br><br>
 
-			<label for="Discounted Price"><b>Discount: </b></label>
+			<label for="Discounted Price"><b>Discounted Price*: </b></label>
 			<input type="number" step="0.01" placeholder="Enter Discount" name='Discount' id='Discount'required><br><br>
 
 			<label for="DiscountValidDate"><b>DiscountValidDate: </b></label>
-			<input type="date" placeholder="Enter DiscountValidDate" name='DiscountValidDate' id='DiscountValidDate'required><br><br>
+			<input type="date" placeholder="Enter DiscountValidDate" name='DiscountValidDate' id='DiscountValidDate'><br><br>
 
 
-			<label for="files"><b>Main Image: </b></label>
-			<p>It will displayed with priority over the other images</p>
+			<label for="files"><b>Main Image*: </b></label>
+			<p>This will displayed with priority over the other images</p>
 			<input type="file" name="file" required><br><br>
 
 			<label for="files"><b>Additional Images: </b></label>
+			<p>You can choose one or more images</p>
 			<input type="file" name="images[]" multiple><br><br>
 
 

@@ -9,7 +9,6 @@ if(isset($_POST['UploadComment'])){
   $result = $conn->query($sql);
   if ($result)
   {
-    echo ("CommentID Gotten");
     $row = mysqli_fetch_array($result);
     $max_CommentID = $row[0];
 
@@ -17,9 +16,9 @@ if(isset($_POST['UploadComment'])){
     $records = $conn->query($sql);
     if ($records)
     {
-      echo ("Uploaded SUCCESSFULLY");
+      // echo ("Uploaded SUCCESSFULLY");
       echo "<script language='javascript'>\n";
-      echo "alert('Upload successful!'); window.location.href='../ViewProductPost.php?PostID=".$_POST['postID']."';";
+      echo "window.location.href='../ViewProductPost.php?PostID=".$_POST['postID']."';";
       echo "</script>\n";
       exit;
     }
