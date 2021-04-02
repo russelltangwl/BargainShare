@@ -166,7 +166,6 @@
           <?php echo "<h4>Category: " . $ProductCategory . "</h4>"; ?>
           <div class="ProductDetails-Line2">
             <?php echo "<h1>" . $ProductName . "</h1>"; ?>
-            <button type="button" name="AddFavorite">Add Category to Favorite</button>
           </div>
           <div class="ProductDetails-Line3">
             <?php echo "<h3>Original Price: £" . $ProductPrice . "</h3>"; ?>
