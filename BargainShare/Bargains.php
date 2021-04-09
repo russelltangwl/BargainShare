@@ -12,7 +12,7 @@
     <header>
       <?php include './php/NavBar.php';?>
     </header>
-    <a class="Create post"href="ProductPost.php">Create Product Post</a>
+    <a class="CreatePost"href="ProductPost.php"><i class="fa fa-pencil-square-o"></i>Create Product Post</a>
 
     <?php
 

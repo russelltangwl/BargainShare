@@ -29,26 +29,48 @@
     }
     </style>
 
-    <a class="Create post"href="ForumCreatePost.php">Create Forum Post</a>
+    <a class="Create post"href="ForumCreatePost.php"><i class="fa fa-pencil-square-o"></i>Create Forum Post</a>
 
-    <?php
-    include './php/ConnectDb.php';
+  <?php
+            include './php/ConnectDb.php';
 
-    $sql = "SELECT * FROM ForumPostsDatabase";
-    $result = $conn->query($sql);
+            $sql = "SELECT * FROM ForumPostsDatabase";
+            $result = $conn->query($sql);
 
-    if ($result->num_rows > 0){
-      echo "<table><tr><th>User ID</th><th>Title</th><th>Post Description</th><th>Upvotes</th></tr>";
-      while ($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["UserID"] . "</td><td>" . $row["Title"] . "</td><td>" . $row["PostContent"] . "</td><td>" . $row["NoOfUpvotes"] . "</td></tr>";
-      }
-      echo "</table>";
-    } else {
-        echo "No posts found, why not be the first to make one?";
-    }
+            if ($result->num_rows > 0){
+              echo "<table><tr>
+                                <th>Title</th>
+                                <th>Post Description</th>
+                                <th>Upvotes</th>
+                                <th>Posted by</th>
+                    </tr>";
+              while ($row = $result->fetch_assoc()) {
+                echo "
+                <tr>
 
-    $conn->close();
-    ?>
+                <td overflow: hidden><a href='ForumViewPost.php?PostID=".$row["PostID"]."'>" . $row["Title"] . "</a></td>
+                <td><a href='ForumViewPost.php?PostID=".$row["PostID"]."'>" . $row["PostContent"] . "</a></td>
+                <td><a href='ForumViewPost.php?PostID=".$row["PostID"]."'>" . $row["NoOfUpvotes"] . "</a></td>
+                <td><a href='ForumViewPost.php?PostID=".$row["PostID"]."'>" . $row["UserID"] . "</a></td>
+
+                </tr>";
+              }
+              echo "</table>";
+            } else {
+                echo "No posts found, why not be the first to make one?";
+            }
+
+
+
+
+
+
+   $conn->close();
+  ?>
+
+
+
+
 
 
   </body>

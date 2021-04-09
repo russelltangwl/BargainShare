@@ -1,0 +1,85 @@
+fieldset ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #66310c;
+  opacity: 1; /* Firefox */
+}
+
+fieldset :-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #66310c;
+}
+
+fieldset ::-ms-input-placeholder { /* Microsoft Edge */
+  color: #66310c;
+}
+
+fieldset {
+    margin: 0 auto;
+    width: 30%;
+    height:fit-content;
+    background-color: #ff7f27;
+    color: white;
+    text-align: center;
+    margin-top: 5%;
+}
+
+fieldset input {
+    display: block;
+    border: 0px;
+    padding: 10px;
+    border-radius: 20px;
+    color: white;
+}
+
+fieldset .SigninNavBar{
+  display: block;
+}
+
+fieldset .SigninNavBar *{
+  display: inline-block;
+  text-align: end;
+}
+
+
+fieldset .OnPage{
+  color: gray;
+}
+
+fieldset .OffPage{
+  color: white;
+  font-size: 0.83em;
+}
+
+fieldset img {
+    display: block;
+}
+
+fieldset * {
+    margin: auto;
+}
+
+input.Login-BTN , input.Register-BTN{
+    color: #ff7f27;
+    font-weight: bold;
+    cursor: pointer;
+    width: 90px;
+}
+
+fieldset input[type="Email"], textarea {
+    background-color: #c25f1b;
+}
+
+fieldset input[type="password"], textarea {
+    background-color: #c25f1b;
+}
+
+fieldset input[type="text"], textarea {
+    background-color: #c25f1b;
+}
+
+fieldset input[type="file"], textarea {
+    background-color: #c25f1b;
+}
+
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #c25f1b inset !important;
+    -webkit-text-fill-color: white !important;
+}

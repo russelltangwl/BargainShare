@@ -16,7 +16,7 @@
   <img class="ProfilePic" src="<?php echo $ProfilePic; ?>" alt="Profile Pic">
   <h2><?php echo $UserName; ?></h2>
   <a href="MyProfile.php">My Profile</a>
-  <a href="MyFavorite.php">My Favourite</a>
-  <a href="My Post.php">My Post</a>
+  <a href="MyFavourite.php">My Favourite</a>
+  <a href="MyPost.php">My Post</a>
   <a href="LogOut.php">Log Out</a>
 </div>
