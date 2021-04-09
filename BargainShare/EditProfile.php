@@ -49,10 +49,10 @@
       <label for="Password"><b>Password: </b></label>
       <input type="password" placeholder="Enter Password" name='Password' value = '<?php echo $row['Password'];?>'id='Password'required><br><br>
 
-     <label for="files"><b>Profile Picture: </b></label>
+ <!--     <label for="files"><b>Profile Picture: </b></label>
    	 <input type="file" name="file" value = '<?php echo $row['Icon'];?>' required><br><br>
 
-
+ -->
        <input type="submit"  class="submit-BTN" value="submit">
        </fieldset>
      </form>

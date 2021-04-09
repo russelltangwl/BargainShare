@@ -24,16 +24,13 @@
       }
       ?>
 
-    <a href="Register.php">Register</a>
-    <a href="Login.php">Login</a>
+    
+    
     <p> User email: <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) echo ($_SESSION["Email"]); ?></p>
     <p> User ID: <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) echo ($_SESSION["UserID"]); ?></p>
-    <a href="LogOut.php">Log Out</a>
     <br>
-
-
   
-    <!-- <button type='button' onclick = 'window.location.href=`./EditProfile.php`'>Edit Profile</button> -->
+    <button type='button' onclick = 'window.location.href=`./EditProfile.php`'>Edit Profile</button>
 
     </div>
 

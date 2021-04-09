@@ -84,7 +84,7 @@ while($row = $result->fetch_assoc()){
           echo "<h5> £".$ProductPrice[$i]."</h5>";
           echo "</div>";
           echo "</div>";
-          if ($i%6==0 && $i!=0) {
+          if ($i%5==0 && $i!=0) {
           echo "</div>";
           echo "<div class='row'>";
           echo "<hr>";

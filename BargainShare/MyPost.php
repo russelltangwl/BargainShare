@@ -38,8 +38,8 @@
     $count=mysqli_num_rows($result);
 
     while($row = $result->fetch_assoc()){
-      $ProductID[] = $row["PostID"];
-      $ProductName[] = $row["ItemName"];
+    $ProductID[] = $row["PostID"];
+    $ProductName[] = $row["ItemName"];
     $ProductType[] = $row["ItemType"];
     $ProductPrice[] = $row["Discount"];
     // $ProductDiscount[] = $row["Discount"];
@@ -78,7 +78,7 @@
             echo "<h5> £".$ProductPrice[$i]."</h5>";
             echo "</div>";
             echo "</div>";
-            if ($i%6==0 && $i!=0) {
+            if ($i%5==0 && $i!=0) {
             echo "</div>";
             echo "<div class='row'>";
             echo "<hr>";
