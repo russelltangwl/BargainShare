@@ -166,3 +166,10 @@ nav .MyAccount-content a:hover{
   text-decoration: none;
   display: block;
 }
+
+nav .ProfilePic {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 10px 0px 10px 0px;
+}

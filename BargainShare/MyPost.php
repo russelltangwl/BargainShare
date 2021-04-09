@@ -6,12 +6,17 @@
     <link rel="icon" href="./images/logo.png">
     <link rel="stylesheet" type="text/css" href="./styles/navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./styles/AccountNavBar.css">
     <link rel="stylesheet" type="text/css" href="./styles/ProductList.css">
   </head>
   <body>
     <header>
-      <?php include './php/NavBar.php';?>  
-<?php
+      <?php include './php/NavBar.php';?>
+    </header>
+    <?php include './php/AccountNavBar.php'; ?>
+
+    <div class="main">
+    <?php
 
   $ProductName = [];
   $ProductType = [];
@@ -87,7 +92,8 @@
 
       $conn->close();
 
-?>
+    ?>
+    </div>
 
-    </header>
+
   </body>

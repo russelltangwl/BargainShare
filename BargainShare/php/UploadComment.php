@@ -17,10 +17,19 @@ if(isset($_POST['UploadComment'])){
     if ($records)
     {
       // echo ("Uploaded SUCCESSFULLY");
-      echo "<script language='javascript'>\n";
-      echo "window.location.href='../ViewProductPost.php?PostID=".$_POST['postID']."';";
-      echo "</script>\n";
-      exit;
+      if($_POST['Database']=='P'){
+        echo "<script language='javascript'>\n";
+        echo "window.location.href='../ViewProductPost.php?PostID=".$_POST['postID']."';";
+        echo "</script>\n";
+        exit;
+      }
+      else if($_POST['Database']=='F'){
+        echo "<script language='javascript'>\n";
+        echo "window.location.href='../ForumViewPost.php?PostID=".$_POST['postID']."';";
+        echo "</script>\n";
+        exit;
+      }
+
     }
     else{
       echo "<script language='javascript'>\n";

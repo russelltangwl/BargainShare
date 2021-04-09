@@ -1,0 +1,51 @@
+.sidenav {
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 100px;
+  left: 50px;
+  background: #eee;
+  overflow-x: hidden;
+  padding: 8px 0;
+  height: 600px;
+}
+
+.sidnav .UpperProfile{
+  display: block;
+}
+.sidenav .ProfilePic {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+.sidenav h3{
+  padding-left: 10px;
+  display: inline;
+}
+
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: orange;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #064579;
+}
+
+.main {
+  margin-left: 250px;
+  margin-top: 50px;
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
