@@ -45,13 +45,24 @@
                                 <th>Posted by</th>
                     </tr>";
               while ($row = $result->fetch_assoc()) {
+
+
+
+
+
                 echo "
                 <tr>
 
-                <td overflow: hidden><a href='ForumViewPost.php?PostID=".$row["PostID"]."'>" . $row["Title"] . "</a></td>
+                <td><a href='ForumViewPost.php?PostID=".$row["PostID"]."'>" . $row["Title"] . "</a></td>
                 <td><a href='ForumViewPost.php?PostID=".$row["PostID"]."'>" . $row["PostContent"] . "</a></td>
-                <td><a href='ForumViewPost.php?PostID=".$row["PostID"]."'>" . $row["NoOfUpvotes"] . "</a></td>
-                <td><a href='ForumViewPost.php?PostID=".$row["PostID"]."'>" . $row["UserID"] . "</a></td>
+                <td><a>" . $row["NoOfUpvotes"] . "</a></td>";
+
+                // Get Name
+                $sql ="SELECT * FROM `UserDatabase` WHERE UserID =". $row['UserID'];
+                $result2 = $conn->query($sql);
+                $row2 = $result2->fetch_assoc();
+
+                echo "<td><a>" . $row2["Name"] . "</a></td>
 
                 </tr>";
               }

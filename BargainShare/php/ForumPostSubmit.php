@@ -4,7 +4,7 @@ session_start();
 $userID = $_SESSION['UserID'];
 $title = $_POST['title'];
 $description = $_POST['description'];
-$upvotes = 1;
+$upvotes = 0;
 
 if (mysqli_connect_error()) {
  die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error());

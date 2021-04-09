@@ -24,10 +24,14 @@
       }
       ?>
 
-    <br><br><br><br><br><br><a href="Register.php">Register</a>
-    <br><br><br><br><br><br><a href="Login.php">Login</a>
+
+
     <p> User email: <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) echo ($_SESSION["Email"]); ?></p>
-    <p> User ID: <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) echo ($_SESSION["UserID"]); ?></p>
-    <br><br><br><br><br><br><a href="LogOut.php">Log Out</a>
+    <br>
+
+    <button type='button' onclick = 'window.location.href=`./EditProfile.php`'>Edit Profile</button>
+
     </div>
-  </body>
+
+
+</body>
