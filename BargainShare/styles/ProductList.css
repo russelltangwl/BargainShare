@@ -5,7 +5,7 @@
   letter-spacing: 1px;
   float: left;
   display: inline-block;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 
 .ProductList  h3{
@@ -32,7 +32,7 @@
   margin-top: 5px;
   margin-bottom: 5px;
   border-bottom: : 1px solid gray;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 
 /* Restrict Size of Each Product */

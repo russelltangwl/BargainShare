@@ -16,6 +16,7 @@
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
     }
 
     td, th {
@@ -27,6 +28,16 @@
     tr:nth-child(even) {
     background-color: #dddddd;
     }
+
+    th:nth-child(odd) {
+    color: #ffffff;
+    background: #324960;
+}
+
+    tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
     </style>
 
     <a class="Create post"href="ForumCreatePost.php"><i class="fa fa-pencil-square-o"></i>Create Forum Post</a>
@@ -37,19 +48,37 @@
             $sql = "SELECT * FROM ForumPostsDatabase";
             $result = $conn->query($sql);
 
+            $sql2 = "SELECT UserID, Name FROM ForumPostsDatabase";
+            $result2 = $conn->query($sql2);
+
             if ($result->num_rows > 0){
-              echo "<table><tr>
+              echo "
+              <style>
+              table {
+                width:100%;
+              }
+              table, th, td {
+                border: 1px solid lightgrey;
+                border-collapse: collapse;
+              }
+              th, td {
+                max-width: 150px;
+                word-wrap: break-word;
+                text-overflow:ellipsis;
+                overflow:hidden;
+                white-space:nowrap;
+              }
+
+              </style>
+              <div style='margin: 30px'>
+              <table>
+                    <tr>
                                 <th>Title</th>
                                 <th>Post Description</th>
                                 <th>Upvotes</th>
                                 <th>Posted by</th>
                     </tr>";
               while ($row = $result->fetch_assoc()) {
-
-
-
-
-
                 echo "
                 <tr>
 
@@ -66,7 +95,8 @@
 
                 </tr>";
               }
-              echo "</table>";
+
+              echo "</table></div>";
             } else {
                 echo "No posts found, why not be the first to make one?";
             }
