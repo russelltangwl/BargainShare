@@ -1,14 +1,20 @@
 <?php
 include "ConnectDb.php";
-$postID = 123;
-$userID = 456;
+session_start();
+$userID = $_SESSION['UserID'];
 $title = $_POST['title'];
 $description = $_POST['description'];
-$upvotes = 1;
+$upvotes = 0;
 
 if (mysqli_connect_error()) {
  die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error());
 } else {
+
+ $sql = "SELECT * FROM ForumPostsDatabase";
+ $result = $conn->query($sql);
+ $postID=$result->num_rows;
+ $postID+=1;
+
  $INSERT = "INSERT INTO `ForumPostsDatabase` (`PostID`, `UserID`, `Title`, `PostContent`, `NoOfUpvotes`) VALUES('".$postID."', '".$userID."', '".$title."', '".$description."', '".$upvotes."')";
 
 $records = $conn->query($INSERT);

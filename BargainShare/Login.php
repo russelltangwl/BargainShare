@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <link rel="icon" href="./images/logo.png">
     <link rel="stylesheet" type="text/css" href="./styles/navbar.css">
+    <link rel="stylesheet" type="text/css" href="./styles/Login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
@@ -12,20 +13,20 @@
       <?php include './php/NavBar.php' ?>
     </header>
 
-    <a href="Register.php">Register</a>
-
 		<form  action="./php/LoadUser.php" method="post" >
       <fieldset>
-      <legend><h1>Log in</h1></legend>
-      <p>Please enter yur password and email to log in.</p>
-      <hr>
+        <div class="SigninNavBar">
+          <h5 class="OnPage" >Login</h5>
+          <a class="OffPage" href="Register.php">Register</a>
+        </div>
+      <img src="./images/logo.png" alt="BargainShare Logo">
 
-      <label for="Email"><b>Email: </b></label>
+      <label for="Email"><b>Email</b></label>
       <input type="email" placeholder="Enter Email" name='Email' id='Email'required><br><br>
 
 
 
-      <label for="Password"><b>Password: </b></label>
+      <label for="Password"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name='Password' id='Password'required><br><br>
 
 

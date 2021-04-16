@@ -9,11 +9,11 @@
     <link rel="stylesheet" type="text/css" href="./styles/navbar.css">
     <link rel="stylesheet" type="text/css" href="./styles/ProductList.css">
     <link rel="stylesheet" type="text/css" href="./styles/Homepage.css">
-  <head>
+  </head>
   <body>
     <header>
-      <div class="backimage">
-                  <nav id="navbar">
+      <div class="backimage" >
+            <nav id="navbar">
             <img class="logo" src="./images/logo.png" alt="BargainShare Logo">
             <a class="left-link" href="index.php">Home</a>
             <a class="left-link" href="Bargains.php">Bargains</a>

@@ -15,26 +15,27 @@
     }
    ?>
   <div class="UpperProfile">
+
     <div class="Profile">
       <img class="ProfilePic" src="<?php echo $ProfilePic; ?>" alt="Profile Pic">
-      <div class="Overlay"> 
+      <div class="Overlay">
           <button type="button" class='btn myBtn' id="myBtn">Edit Profile Pic</button>
           <div id="myModal" class="modal">
               <!-- Modal content -->
               <div class="modal-content">
                 <div class="modal-header">
                   <span class="close">&times;</span>
-                  <h2>Edit Pic</h2>
+                  <h2>Edit Profile Picture</h2>
                 </div>
                 <div class="modal-body">
                   <form  action="./php/EditUser.php" method="POST" enctype="multipart/form-data" >
             <fieldset>
-            <legend><h1>Edit Profile</h1></legend>
+              <p>Change your profile picture by uploading a image.</p>
             <hr>
            <label for="files"><b>Profile Picture: </b></label>
            <input type="file" name="file" value = '<?php echo $row['Icon'];?>' required><br><br>
-           <br><br>
-             <input type="submit"  class="submit-BTN" value="submit">
+
+             <input type="submit"  class="submit-BTN" value="save">
              </fieldset>
            </form>
                 </div>
@@ -42,16 +43,22 @@
             </div>
       </div>
     </div>
-  <h3><?php echo $UserName; ?></h3>
   </div>
+  <h3 style="text-align: center;padding: 5px; margin: 0;"><?php echo $UserName; ?></h3>
+  <br>
+  <hr>
+  <br>
   <div class="LowerProfile">
-  <a href="MyProfile.php">MyProfile</a>
-  <a href="MyFavorite.php">My Favourite</a>
+  <a href="MyProfile.php">My Profile</a>
+  <br>
+  <a href="MyFavourite.php">My Favourite</a>
+  <br>
   <a href="MyPost.php">My Post</a>
+  <br>
   <a href="LogOut.php">Log Out</a>
   </div>
 </div>
-<!-- 
+<!--
 <script type="text/javascript">
   function changePic(){
     document.write("<link rel='stylesheet' type='text/css' href='./styles/ViewProductPost.css'>")

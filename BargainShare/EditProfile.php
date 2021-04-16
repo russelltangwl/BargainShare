@@ -20,17 +20,6 @@
 		$result = $conn->query($sql);
 		$row = $result->fetch_assoc();
 
-		if(mysqli_num_rows($result) == 1){
-			echo "Email: ".$row['Email'];
-			echo "  ";			
-			echo "Password: ".$row['Password'];
-			echo "  ";
-			echo "Level:".$row['Level'];
-			echo "  ";
-			echo "Name: ".$row['Name'];
-			echo "  ";
-		}
-
 
 
 ?>
@@ -39,7 +28,7 @@
 	<form  action="./php/EditUser.php" method="POST" enctype="multipart/form-data" >
       <fieldset>
       <legend><h1>Edit Profile</h1></legend>
-      <p>Please enter your password ,Name and Icon to chnage.</p>
+      <p>Please enter your name & password to change.</p>
       <hr>
 
       <label for="Name"><b>Name: </b></label>
@@ -47,15 +36,33 @@
 
 
       <label for="Password"><b>Password: </b></label>
-      <input type="password" placeholder="Enter Password" name='Password' value = '<?php echo $row['Password'];?>'id='Password'required><br><br>
+      <input type="password" placeholder="Enter Password" name='Password' value = '<?php echo $row['Password'];?>'id='password'required><br><br>
 
- <!--     <label for="files"><b>Profile Picture: </b></label>
-   	 <input type="file" name="file" value = '<?php echo $row['Icon'];?>' required><br><br>
+      <label for="Password"><b>Confirm Password: </b></label>
+      <input type="password" placeholder="Enter Password" name='Confirm_Password' value = '<?php echo $row['Password'];?>'id='confirm_password'required><br><br>
 
- -->
-       <input type="submit"  class="submit-BTN" value="submit">
+       <input type="submit"  class="submit-BTN" value="save">
        </fieldset>
      </form>
 
 </div>
+
+<!-- Password Validation -->
+<script type="text/javascript">
+   var password = document.getElementById("password")
+    , confirm_password = document.getElementById("confirm_password");
+
+   function validatePassword(){
+    if(password.value != confirm_password.value) {
+      confirm_password.setCustomValidity("Passwords Don't Match");
+    } else {
+      confirm_password.setCustomValidity('');
+    }
+   }
+
+   password.onchange = validatePassword;
+   confirm_password.onkeyup = validatePassword;
+
+</script>
+
   </body>

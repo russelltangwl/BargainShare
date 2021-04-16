@@ -1,6 +1,6 @@
 <?php
   session_start();
-  include 'ConnectDb.php';	
+  include 'ConnectDb.php';
 
   if (isset($_POST['Password'])&& isset($_POST['Name'])) {
     $sql = "UPDATE `UserDatabase` SET `Password`='".$_POST['Password']."',`Name` ='".$_POST['Name']."' WHERE UserID ='".$_SESSION['UserID']."'";
@@ -28,13 +28,13 @@
 
     $sql = "UPDATE `UserDatabase` SET `Icon` = '".$image."' WHERE UserID ='".$_SESSION['UserID']."'";
     $result = $conn->query($sql);
-  
+
   }
   }
-  
+
 
   echo "<script language='javascript'>\n";
   echo "alert('User detail Edited Successfully'); window.location.href='../MyProfile.php';";
   echo "</script>\n";
-  
+
 ?>

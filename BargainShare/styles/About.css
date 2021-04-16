@@ -1,0 +1,73 @@
+.AboutSection {
+  font-family: sans-serif;
+}
+
+.AboutTitleBox {
+  height: 178px;
+  margin: 17px 10% 17px 10%;
+  border-style: solid;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: #FFA500;
+  border-color: #999999;
+  text-align: center;
+}
+
+.AboutTitle {
+  font-weight: 700;
+  margin: 29px 0 0;
+  font-size: 3rem;
+  line-height: 1.1;
+}
+
+.AboutDescription {
+  font-weight: 700;
+  font-size: 1.125rem;
+  margin: 22px 0 0;
+}
+
+.MemberList{
+  display: grid;
+  width: 1140px;
+  min-height: 650px;
+  grid-gap: 21px 21px;
+  grid-template-columns: calc(33.3333% - 14px) calc(33.3333% - 14px) calc(33.3333% - 14px);
+  grid-template-rows: auto auto;
+  width: 900px;
+  margin: 21px auto 45px auto;
+}
+
+.MemberBox {
+  padding: 30px;
+  border: 2px black solid;
+  text-align: center;
+}
+
+.MemberTitle {
+  font-weight: 700;
+  background-image: none;
+  font-size: 1.875rem;
+  margin: 17px 10% 17px 10%;
+}
+
+
+.MemberIcon {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin: 30px -1px 0;
+  border: 2px black solid;
+}
+
+.MemberName {
+  font-weight: 700;
+  margin: 13px 188px 0 0;
+  font-size: 1.875rem;
+  width: 100%;
+}
+
+section hr {
+  background-color: #ff7f27;
+  height:2px;
+  border-width:0;
+}

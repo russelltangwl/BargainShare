@@ -12,7 +12,7 @@
     <header>
       <?php include './php/NavBar.php';?>
     </header>
-    <a class="Create post"href="ProductPost.php">Create Product Post</a>
+    <a class="CreatePost"href="ProductPost.php"><i class="fa fa-pencil-square-o"></i>Create Product Post</a>
 
     <?php
 
@@ -64,14 +64,13 @@
 
     }
         echo "<div class='ProductList'>";
-        echo "<div class='row'>";
          for ($i=0; $i <$count ; $i++) {
             echo "<div class='col-md-3'>";
             echo "<div class='product-top'>";
             echo "<img src='".$Productimage[$i]."'>";
             echo "<div class='overlay'>";
             echo ("<button  type='button' class='btn btn-secondary' title='Show info' onclick =\"location.href ='ViewProductPost.php?PostID=".$ProductID[$i]."'\"><i class='fa fa-eye'></i></button>");
-            echo "<button type='button' class='btn btn-secondary' title='Add to favourite'onclick =\"location.href ='MyFavourite.php'\"><i class='fa fa-star'></i>";
+            echo "<button type='button' class='btn btn-secondary' title='Add to favourite'onclick='window.location.href=`./php/FavoriteDB.php?FavoritePost=".$ProductID[$i]."`'><i class='fa fa-star'></i>";
             echo "<button onclick='window.location.href=`./php/ToggleLike.php?LikePost=".$ProductID[$i]."`' type='button' class='btn btn-secondary' title='Like'><i class='fa fa-heart'></i></button>";
             echo "</div>";
             echo "</div>";
@@ -80,14 +79,7 @@
             echo "<h5> £".$ProductPrice[$i]."</h5>";
             echo "</div>";
             echo "</div>";
-            if ($i%6==0 && $i!=0) {
-            echo "</div>";
-            echo "<div class='row'>";
-            echo "<hr>";
-
-            }
         }
-        echo "</div>";
         echo "</div>";
 
 

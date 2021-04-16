@@ -38,8 +38,8 @@
     $count=mysqli_num_rows($result);
 
     while($row = $result->fetch_assoc()){
-    $ProductID[] = $row["PostID"];
-    $ProductName[] = $row["ItemName"];
+      $ProductID[] = $row["PostID"];
+      $ProductName[] = $row["ItemName"];
     $ProductType[] = $row["ItemType"];
     $ProductPrice[] = $row["Discount"];
     // $ProductDiscount[] = $row["Discount"];
@@ -62,31 +62,23 @@
 
 
     echo "<div class='ProductList'>";
-        echo "<div class='row'>";
-         for ($i=0; $i <$count ; $i++) {
-            echo "<div class='col-md-3'>";
-            echo "<div class='product-top'>";
-            echo "<img src='".$Productimage[$i]."'>";
-            echo "<div class='overlay'>";
-            echo ("<button  type='button' class='btn btn-secondary' title='Show info' onclick =\"location.href ='ViewProductPost.php?PostID=".$ProductID[$i]."'\"><i class='fa fa-eye'></i></button>");
-            echo "<button type='button' class='btn btn-secondary' title='Add to favourite'onclick =\"location.href ='MyFavourite.php'\"><i class='fa fa-star'></i>";
-            echo "<button onclick='window.location.href=`./php/ToggleLike.php?LikePost=".$ProductID[$i]."`' type='button' class='btn btn-secondary' title='Like'><i class='fa fa-heart'></i></button>";
-            echo "</div>";
-            echo "</div>";
-            echo "<div class='product-bottom text-center'>";
-            echo "<h4>".$ProductName[$i]."</h4>";
-            echo "<h5> £".$ProductPrice[$i]."</h5>";
-            echo "</div>";
-            echo "</div>";
-            if ($i%5==0 && $i!=0) {
-            echo "</div>";
-            echo "<div class='row'>";
-            echo "<hr>";
-
-            }
-        }
+     for ($i=0; $i <$count ; $i++) {
+        echo "<div class='col-md-3'>";
+        echo "<div class='product-top'>";
+        echo "<img src='".$Productimage[$i]."'>";
+        echo "<div class='overlay'>";
+        echo ("<button  type='button' class='btn btn-secondary' title='Show info' onclick =\"location.href ='ViewProductPost.php?PostID=".$ProductID[$i]."'\"><i class='fa fa-eye'></i></button>");
+        echo "<button type='button' class='btn btn-secondary' title='Add to favourite'onclick='window.location.href=`./php/FavoriteDB.php?FavoritePost=".$ProductID[$i]."`'><i class='fa fa-star'></i>";
+        echo "<button onclick='window.location.href=`./php/ToggleLike.php?LikePost=".$ProductID[$i]."`' type='button' class='btn btn-secondary' title='Like'><i class='fa fa-heart'></i></button>";
         echo "</div>";
         echo "</div>";
+        echo "<div class='product-bottom text-center'>";
+        echo "<h4>".$ProductName[$i]."</h4>";
+        echo "<h5> £".$ProductPrice[$i]."</h5>";
+        echo "</div>";
+        echo "</div>";
+    }
+    echo "</div>";
 
 
 
