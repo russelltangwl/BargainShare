@@ -20,16 +20,8 @@
 
 // Array of each colums
 $ProductName = [];
-$ProductType = [];
 $ProductPrice = [];
 $ProductDiscount = [];
-$ProductValidDate = [];
-$ProductNoOfUpVote = [];
-$ProductMessage = [];
-$ProductImgCount = [];
-$ProductSource = [];
-$ProductDate = [];
-$ProductUserID = [];
 $Productimage =[];
 $ProductID =[];
 
@@ -49,16 +41,8 @@ while($row = $result->fetch_assoc()){
 
   $ProductID[] = $prow["PostID"];
   $ProductName[] = $prow["ItemName"];
-  $ProductType[] = $prow["ItemType"];
-  $ProductPrice[] = $prow["Discount"];
-  // $ProductDiscount[] = $row["Discount"];
-  $ProductValidDate[] = $prow["DiscountValidDate"];
-  $ProductNoOfUpVote[] = $prow["NoOfUpVotes"];
-  $ProductMessage[] = $prow["Message"];
-  $ProductImgCount[]  = $prow["ImageCount"];
-  $ProductSource[] = $prow["Source"];
-  $ProductDate[] =$prow["Date"];
-  $ProductUserID[] = $prow["UserID"];
+  $ProductPrice[] = $prow["Price"];
+  $ProductDiscount[] = $prow["Discount"];
 
   $image = "SELECT ImageData FROM ImageDatabase WHERE ImageIndex=0 and PostID = ".$prow["PostID"];
   $imageresult = $conn -> query($image);
@@ -80,7 +64,8 @@ while($row = $result->fetch_assoc()){
       echo "</div>";
       echo "<div class='product-bottom text-center'>";
       echo "<h4>".$ProductName[$i]."</h4>";
-      echo "<h5> £".$ProductPrice[$i]."</h5>";
+      echo "<h5 class='Price'> £".$ProductPrice[$i]."</h5>";
+      echo "<h5> £".$ProductDiscount[$i]."</h5>";
       echo "</div>";
       echo "</div>";
   }

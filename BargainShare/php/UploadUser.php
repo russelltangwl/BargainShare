@@ -41,7 +41,7 @@ if(isset($_POST['CreateAccount'])){
 
   // Picture Finish Encrypt==-------------
 
-    $sql = "INSERT INTO `UserDatabase` (`UserID`, `Email`, `Password`, `Level`, `Upvotes`, `Name`, `Icon`) VALUES ('".$max_num."', '".$_POST['Email']."', '".$_POST['Password']."', '1', '0', '".$_POST['Names']."', ".$image.")";
+    $sql = "INSERT INTO `UserDatabase` (`UserID`, `Email`, `Password`, `Name`, `Icon`) VALUES ('".$max_num."', '".$_POST['Email']."', '".$_POST['Password']."', '".$_POST['Names']."', ".$image.")";
     $records = $conn->query($sql);
     if ($records)
     {

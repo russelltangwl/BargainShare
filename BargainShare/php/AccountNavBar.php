@@ -2,10 +2,9 @@
   <?php
     $UserID = $_SESSION['UserID'];
     // GET USER ICON
-    $sql = "SELECT Name,Icon,Level FROM UserDatabase WHERE UserID = ". $UserID;
+    $sql = "SELECT * FROM UserDatabase WHERE UserID = ". $UserID;
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
-    $UserLevel = $row['Level'];
     $UserName = $row["Name"];
     if($row["Icon"] === NULL){
       $ProfilePic = "./images/nullProfilePic.png";

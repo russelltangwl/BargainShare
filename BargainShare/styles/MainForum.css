@@ -1,0 +1,72 @@
+.ForumTable{
+  margin: 30px;
+}
+
+table {
+  width:100%;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+}
+table, th, td {
+  border: 1px solid lightgrey;
+  border-collapse: collapse;
+}
+th, td {
+  max-width: 150px;
+  word-wrap: break-word;
+  text-overflow:ellipsis;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background: #F8F8F8;
+}
+
+th {
+  color: #ffffff;
+  background: #324960;
+}
+
+
+table .col1{
+  width: 50%;
+}
+
+table .col2{
+  width: 10%;
+}
+
+table .col3{
+  width: 10%;
+}
+
+table .col4{
+  width: 30%;
+}
+
+table .Comment{
+  font-weight: bold;
+}
+
+table a:link, table a:visited {
+  color: #ff8400;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+table a:hover {
+    text-decoration: underline;
+}
+
+.ForumTopBar{
+  display: inline-block;
+}

@@ -173,7 +173,7 @@
             <?php echo "<h4>Valid Until: " . $ProductValidDate . "</h4>"; ?>
           </div>
           <div class="ProductMessage">
-            <?php echo "<h5>" . $ProductMessage . "</h5>"; ?>
+            <?php echo "<h4>Source: <a href='".$ProductSource."'>".$ProductSource."</a></h4><h5>" . $ProductMessage . "</h5>"; ?>
           </div>
         </div>
         <div class="AdditionalImgBlock">

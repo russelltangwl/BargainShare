@@ -58,15 +58,23 @@
   height: 200px;
 }
 
+.ProductList .Price{
+  color: red;
+  text-decoration: line-through;
+  margin: 0px;
+}
+
 
 .ProductList .product-bottom h4{
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
-
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .ProductList .product-bottom h5{
   font-size:15px;
-  padding-bottom: 10px;
+  margin: 0px;
 }
 
 .ProductList .overlay{

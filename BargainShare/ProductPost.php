@@ -45,6 +45,7 @@
 				<option value="Sports & Outdoor">Sports & Outdoor</option>
 				<option value="Do it yourself">Do it yourself</option>
         <option value="Motor Transport">Motor Transport</option>
+				<option value="Groceries">Groceries</option>
         <option value="Others">Others</option>
 			</select><br><br>
 
@@ -59,12 +60,12 @@
 
 
 			<label for="files"><b>Main Image*: </b></label>
-			<p>This will displayed with priority over the other images</p>
-			<input type="file" name="file" required><br><br>
+			<p>This will displayed with priority over the other images (Only .png and .jpeg is accepted)</p>
+			<input type="file" name="file" required accept="image/*"><br><br>
 
 			<label for="files"><b>Additional Images: </b></label>
 			<p>You can choose one or more images</p>
-			<input type="file" name="images[]" multiple><br><br>
+			<input type="file" name="images[]" multiple accept="image/*"><br><br>
 
 
 			<label for="Message"><b>Message: </b></label>
@@ -72,9 +73,26 @@
 
 			<input type="hidden" name="UserID" value='<?php echo $_SESSION['UserID']; ?>'>
 
-			<p>By creating a post you agree to our <a href="Terms.php">Terms & Privacy</a>.</p>
+			<p>By creating a post you agree to our Terms & Privacy.</p>
 			<input type="submit" name="UploadProductPost" class="ProductPost-Btn" value="Post">
 		</fieldset>
 	</form>
+
+	<script type="text/javascript">
+		 var Price = document.getElementById("Price")
+			, Discount = document.getElementById("Discount");
+
+		 function validatePrice(){
+			if(parseFloat(Price.value) <= parseFloat(Discount.value)) {
+				Discount.setCustomValidity("Price should be higher than Discount");
+			} else {
+				Discount.setCustomValidity('');
+			}
+		 }
+
+		 Price.onchange = validatePrice;
+		 Discount.onkeyup = validatePrice;
+
+	</script>
 </body>
 </html>

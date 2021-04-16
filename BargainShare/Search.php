@@ -54,15 +54,8 @@
     $ProductID[] = $row["PostID"];
     $ProductName[] = $row["ItemName"];
     $ProductType[] = $row["ItemType"];
-    $ProductPrice[] = $row["Discount"];
-    // $ProductDiscount[] = $row["Discount"];
-    $ProductValidDate[] = $row["DiscountValidDate"];
-    $ProductNoOfUpVote[] = $row["NoOfUpVotes"];
-    $ProductMessage[] = $row["Message"];
-    $ProductImgCount[]  = $row["ImageCount"];
-    $ProductSource[] = $row["Source"];
-    $ProductDate[] =$row["Date"];
-    $ProductUserID[] = $row["UserID"];
+    $ProductPrice[] = $row["Price"];
+    $ProductDiscount[] = $row["Discount"];
 
 
     //Find the main image
@@ -88,7 +81,8 @@
             echo "</div>";
             echo "<div class='product-bottom text-center'>";
             echo "<h4>".$ProductName[$i]."</h4>";
-            echo "<h5> £".$ProductPrice[$i]."</h5>";
+            echo "<h5 class='Price'> £".$ProductPrice[$i]."</h5>";
+            echo "<h5> £".$ProductDiscount[$i]."</h5>";
             echo "</div>";
             echo "</div>";
             if ($i % 6 == 0 && $i != 0) {
@@ -106,16 +100,8 @@
 
   // Array of each colums
   $ProductName = [];
-  $ProductType = [];
   $ProductPrice = [];
   $ProductDiscount = [];
-  $ProductValidDate = [];
-  $ProductNoOfUpVote = [];
-  $ProductMessage = [];
-  $ProductImgCount = [];
-  $ProductSource = [];
-  $ProductDate = [];
-  $ProductUserID = [];
   $Productimage =[];
   $ProductID =[];
 
@@ -140,15 +126,8 @@
     $ProductID[] = $row["PostID"];
     $ProductName[] = $row["ItemName"];
     $ProductType[] = $row["ItemType"];
-    $ProductPrice[] = $row["Discount"];
-    // $ProductDiscount[] = $row["Discount"];
-    $ProductValidDate[] = $row["DiscountValidDate"];
-    $ProductNoOfUpVote[] = $row["NoOfUpVotes"];
-    $ProductMessage[] = $row["Message"];
-    $ProductImgCount[]  = $row["ImageCount"];
-    $ProductSource[] = $row["Source"];
-    $ProductDate[] =$row["Date"];
-    $ProductUserID[] = $row["UserID"];
+    $ProductPrice[] = $row["Price"];
+    $ProductDiscount[] = $row["Discount"];
 
 
     //Find the main image
@@ -174,7 +153,8 @@
             echo "</div>";
             echo "<div class='product-bottom text-center'>";
             echo "<h4>".$ProductName[$i]."</h4>";
-            echo "<h5> £".$ProductPrice[$i]."</h5>";
+            echo "<h5 class='Price'> £".$ProductPrice[$i]."</h5>";
+            echo "<h5> £".$ProductDiscount[$i]."</h5>";
             echo "</div>";
             echo "</div>";
             if ($i % 6 == 0 && $i != 0) {

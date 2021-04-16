@@ -15,7 +15,7 @@ if (mysqli_connect_error()) {
  $postID=$result->num_rows;
  $postID+=1;
 
- $INSERT = "INSERT INTO `ForumPostsDatabase` (`PostID`, `UserID`, `Title`, `PostContent`, `NoOfUpvotes`) VALUES('".$postID."', '".$userID."', '".$title."', '".$description."', '".$upvotes."')";
+ $INSERT = "INSERT INTO `ForumPostsDatabase` (`PostID`, `UserID`, `Title`, `PostContent`, `NoOfUpvotes`, `Date`) VALUES('".$postID."', '".$userID."', '".$title."', '".$description."', '".$upvotes."', CURRENT_TIMESTAMP)";
 
 $records = $conn->query($INSERT);
 if ($records)

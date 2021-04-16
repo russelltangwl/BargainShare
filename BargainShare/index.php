@@ -79,6 +79,7 @@
               <option value="Sports & Outdoor">Sports & Outdoor</option>
               <option value="Do it yourself">Do it yourself</option>
               <option value="Motor Transport">Motor Transport</option>
+              <option value="Groceries">Groceries</option>
               <option value="Others">Others</option>
             </select>
             <input type="text" placeholder="Search.." name="search" id="search">
@@ -108,7 +109,8 @@
             echo "</div>";
             echo "<div class='product-bottom text-center'>";
             echo "<h4>".$ProductName[$i]."</h4>";
-            echo "<h5> £".$ProductPrice[$i]."</h5>";
+            echo "<h5 class='Price'> £".$ProductPrice[$i]."</h5>";
+            echo "<h5> £".$ProductDiscount[$i]."</h5>";
             echo "</div>";
             echo "</div>";
         } ?>
@@ -131,7 +133,8 @@
             echo "</div>";
             echo "<div class='product-bottom text-center'>";
             echo "<h4>".$ProductName[$i]."</h4>";
-            echo "<h5> £".$ProductPrice[$i]."</h5>";
+            echo "<h5 class='Price'> £".$ProductPrice[$i]."</h5>";
+            echo "<h5> £".$ProductDiscount[$i]."</h5>";
             echo "</div>";
             echo "</div>";
         } ?>

@@ -12,22 +12,14 @@
     <header>
       <?php include './php/NavBar.php';?>
     </header>
-    <a class="CreatePost"href="ProductPost.php"><i class="fa fa-pencil-square-o"></i>Create Product Post</a>
+    <a href="ProductPost.php" class="CreatePost"><i class="fa fa-pencil-square-o"></i>     Create Bargain Post</a>
 
     <?php
 
   // Array of each colums
   $ProductName = [];
-  $ProductType = [];
   $ProductPrice = [];
   $ProductDiscount = [];
-  $ProductValidDate = [];
-  $ProductNoOfUpVote = [];
-  $ProductMessage = [];
-  $ProductImgCount = [];
-  $ProductSource = [];
-  $ProductDate = [];
-  $ProductUserID = [];
   $Productimage =[];
   $ProductID =[];
 
@@ -43,16 +35,8 @@
   while($row = $result->fetch_assoc()){
     $ProductID[] = $row["PostID"];
     $ProductName[] = $row["ItemName"];
-    $ProductType[] = $row["ItemType"];
-    $ProductPrice[] = $row["Discount"];
-    // $ProductDiscount[] = $row["Discount"];
-    $ProductValidDate[] = $row["DiscountValidDate"];
-    $ProductNoOfUpVote[] = $row["NoOfUpVotes"];
-    $ProductMessage[] = $row["Message"];
-    $ProductImgCount[]  = $row["ImageCount"];
-    $ProductSource[] = $row["Source"];
-    $ProductDate[] =$row["Date"];
-    $ProductUserID[] = $row["UserID"];
+    $ProductPrice[] = $row["Price"];
+    $ProductDiscount[] = $row["Discount"];
 
 
     //Find the main image
@@ -76,7 +60,8 @@
             echo "</div>";
             echo "<div class='product-bottom text-center'>";
             echo "<h4>".$ProductName[$i]."</h4>";
-            echo "<h5> £".$ProductPrice[$i]."</h5>";
+            echo "<h5 class='Price'> £".$ProductPrice[$i]."</h5>";
+            echo "<h5> £".$ProductDiscount[$i]."</h5>";
             echo "</div>";
             echo "</div>";
         }

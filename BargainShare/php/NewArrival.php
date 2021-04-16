@@ -1,36 +1,20 @@
 <?php
 
 	$ProductName = [];
-	$ProductType = [];
 	$ProductPrice = [];
 	$ProductDiscount = [];
-	$ProductValidDate = [];
-	$ProductNoOfUpVote = [];
-	$ProductMessage = [];
-	$ProductImgCount = [];
-	$ProductSource = [];
-	$ProductDate = [];
-	$ProductUserID = [];
 	$Productimage =[];
 	$ProductID =[];
 
 	include './php/ConnectDb.php';
-    $sql = "SELECT * FROM ProductPostsDatabase ORDER BY Date DESC ";
+    $sql = "SELECT * FROM ProductPostsDatabase ORDER BY Date DESC";
     $result = $conn->query($sql);
 
     while($row = $result->fetch_assoc()){
     	$ProductID[] = $row["PostID"];
     	$ProductName[] = $row["ItemName"];
-		$ProductType[] = $row["ItemType"];
-		$ProductPrice[] = $row["Discount"];
-		// $ProductDiscount[] = $row["Discount"];
-		$ProductValidDate[] = $row["DiscountValidDate"];
-		$ProductNoOfUpVote[] = $row["NoOfUpVotes"];
-		$ProductMessage[] = $row["Message"];
-		$ProductImgCount[]  = $row["ImageCount"];
-		$ProductSource[] = $row["Source"];
-		$ProductDate[] =$row["Date"];
-		$ProductUserID[] = $row["UserID"];
+		$ProductPrice[] = $row["Price"];
+		$ProductDiscount[] = $row["Discount"];
 
 
 

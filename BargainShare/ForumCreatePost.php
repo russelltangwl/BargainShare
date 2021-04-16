@@ -27,14 +27,13 @@
 	<fieldset>
 	  <legend><h1>Create Post</h1></legend>
 	  <label for="title">Title:</label><br>
-	  <input type="text" id="title" name="title"><br><br>
+	  <input type="text" id="title" name="title" required><br><br>
 
 	  <label for="description">Description:</label><br>
-	  <textarea id="descriptionbox" name="description" cols="40" rows="5"></textarea><br><br>
+	  <textarea id="descriptionbox" name="description" cols="40" rows="5" required></textarea><br><br>
 
-	  <input type="submit" onClick="alert('Submitting post...')" value="Submit">
-	  <p>Click the "Submit" button and the form-data will be sent to a page on the
-		server called "ForumPostSubmit.php" qwer!!!!!.</p>
+	  <input type="submit" value="Submit">
+	  <p>By creating a post you agree to our Terms & Privacy.</p>
 	</fieldset>
 	</form>
 
