@@ -28,7 +28,6 @@ $result = $conn->query($sql);
   	$UserID = $row["UserID"];
 
         $_SESSION['UserID'] = $UserID;
-        $_SESSION['Email'] = $Email;
 
 
 

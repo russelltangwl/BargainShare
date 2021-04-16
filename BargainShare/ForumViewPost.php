@@ -53,10 +53,10 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
   $row = $result->fetch_assoc();
   $CurrentUserName = $row["Name"];
   if($row["Icon"] === NULL){
-    $ProfilePic = "./images/nullProfilePic.png";
+    $UserPic = "./images/nullProfilePic.png";
   }
   else{
-    $ProfilePic = $row["Icon"];
+    $UserPic = $row["Icon"];
   }
 
 
@@ -169,7 +169,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
   echo "<div class='Comment''>
     <h2>Add Comment:</h2>
     <div class='SkipLine'>
-      <img class='ProfilePic' src='" .$ProfilePic. "' alt='Profile Picture'>
+      <img class='ProfilePic' src='" .$UserPic. "' alt='Profile Picture'>
       <h2>" . $CurrentUserName . "</h2>
     </div>
     <form action='./php/UploadComment.php' method='post'>

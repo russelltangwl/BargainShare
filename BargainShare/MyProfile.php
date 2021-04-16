@@ -4,9 +4,10 @@
     <title>My Profile-BargainShare</title>
     <meta charset="utf-8">
     <link rel="icon" href="./images/logo.png">
+    <link rel="stylesheet" type="text/css" href="./styles/MyProfile.css">
     <link rel="stylesheet" type="text/css" href="./styles/navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="./styles/MyProfile.css">
+
   </head>
   <body>
     <header>
@@ -25,10 +26,11 @@
   <?php
     $UserID = $_SESSION['UserID'];
     // GET USER ICON
-    $sql = "SELECT Name,Icon FROM UserDatabase WHERE UserID = ". $UserID;
+    $sql = "SELECT * FROM UserDatabase WHERE UserID = ". $UserID;
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $UserName = $row["Name"];
+    $Email = $row["Email"];
     if($row["Icon"] === NULL){
       $ProfilePic = "./images/nullProfilePic.png";
     }
@@ -67,9 +69,9 @@
       </div>
     </div>
     <h3><?php echo $UserName; ?></h3>
-    <h5> User email: <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) echo ($_SESSION["Email"]); ?></h5>
+    <h5> User email: <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) echo ($Email); ?></h5>
   </div>
-  <a class="EditProfile" href="./EditProfile.php">Edit Profile</a>
+  <a class="EditProfile" href="./EditProfile.php"><i class="fa fa-pencil-square-o"></i>     Edit Profile</a>
 
 
   <div class="LowerProfile">

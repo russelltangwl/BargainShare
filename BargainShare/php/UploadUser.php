@@ -48,7 +48,6 @@ if(isset($_POST['CreateAccount'])){
       session_start();
       $_SESSION['loggedin'] = true;
       $_SESSION['UserID'] = $max_num;
-      $_SESSION["Email"] = $_POST['Email'];
       // echo ("Uploaded SUCCESSFULLY");
       echo "<script language='javascript'>\n";
   		echo "alert('Register successful'); window.location.href='../MyProfile.php';";
