@@ -65,13 +65,13 @@
               </div>
             </div>
       </div>
-        <h3><?php echo $UserName; ?></h3>
-       <h5> User email: <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) echo ($_SESSION["Email"]); ?></h5>
     </div>
+    <h3><?php echo $UserName; ?></h3>
+    <h5> User email: <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) echo ($_SESSION["Email"]); ?></h5>
   </div>
   <div class ="Edit"> <button type='button' id="EditProfile" onclick = 'window.location.href=`./EditProfile.php`'>Edit Profile</button> </div>
   
-  <br>
+  
   <div class="LowerProfile">
   <a href="MyProfile.php">My Profile</a>
   <br>
